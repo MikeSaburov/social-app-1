@@ -1,5 +1,7 @@
+import { Avatar } from './components/Avatar';
 import Card from './components/Card';
 import { NavigationCard } from './components/NavigationCard';
+import { PostCard } from './components/PostCard';
 import { PostFormCard } from './components/PostFormCard';
 
 export default function Home() {
@@ -10,7 +12,7 @@ export default function Home() {
       </div>
       <div className="grow">
         <PostFormCard />
-        <Card>ferst post test</Card>
+        <PostCard />
       </div>
     </div>
   );
