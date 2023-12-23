@@ -82,8 +82,8 @@ export const PostFormCard = () => {
             Настроение
           </button>
         </div>
-        <div>
-          <button className="bg-socialBlue text-white px-4 py-2 rounded-md">
+        <div className="grow text-right">
+          <button className="bg-socialBlue text-white px-4 py-1 rounded-md">
             Поделиться
           </button>
         </div>
