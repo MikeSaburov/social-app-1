@@ -2,13 +2,13 @@ import Card from './components/Card';
 
 export default function Home() {
   return (
-    <div className="flex mt-4 max-w-4xl mx-auto gap-2">
+    <div className="flex mt-4 max-w-4xl mx-auto gap-4">
       <div className="w-1/3">
         <Card>test links</Card>
       </div>
       <div className="grow">
         <Card>form here</Card>
-        posts
+        <Card>ferst post test</Card>
       </div>
     </div>
   );
