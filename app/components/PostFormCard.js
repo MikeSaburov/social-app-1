@@ -19,7 +19,7 @@ export const PostFormCard = () => {
       </div>
 
       {/* Блок кнопок */}
-      <div className="flex gap-3">
+      <div className="flex gap-3 items-center">
         <div>
           <button className="flex gap-1">
             <svg
@@ -80,6 +80,11 @@ export const PostFormCard = () => {
               />
             </svg>
             Настроение
+          </button>
+        </div>
+        <div>
+          <button className="bg-socialBlue text-white px-4 py-2 rounded-md">
+            Поделиться
           </button>
         </div>
       </div>
