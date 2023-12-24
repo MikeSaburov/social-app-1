@@ -35,7 +35,7 @@ export const PostCard = () => {
         <div className="relative">
           <button className="text-gray-400" onClick={openDropdown}>
             {dropdownOpen ? (
-              <div className="w-5 h-5 absolute top-0 right-1.5">
+              <div className="w-5 h-5 absolute top-0 right-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
