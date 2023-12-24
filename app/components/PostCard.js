@@ -25,7 +25,7 @@ export const PostCard = () => {
         <div>
           <img
             className="rounded-md overflow-hidden "
-            src="https://images.unsplash.com/photo-1703023583530-da9a24fd4972?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1506978520653-bb3accebb1a3?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
         </div>
       </div>
@@ -87,8 +87,8 @@ export const PostCard = () => {
           <Avatar />
         </div>
         <textarea
-          className="border grow  px-3 py-2.5 block h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
-          placeholder="Оставить комметарий.."
+          className="border grow  px-3 py-2.5 block h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden"
+          placeholder="Добавить комментарий..."
         ></textarea>
       </div>
     </Card>
