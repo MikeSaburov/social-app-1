@@ -8,12 +8,31 @@ export const PostCard = () => {
         <div>
           <Avatar />
         </div>
-        <div>
+        <div className="grow">
           <p>
             <a className="font-semibold">Данила Мастер</a> поделился{' '}
             <a className="text-socialBlue">фото</a>
           </p>
           <p className="text-gray-500 text-sm">2 часа назад</p>
+        </div>
+
+        <div>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
       <div>
@@ -91,7 +110,7 @@ export const PostCard = () => {
             className="px-3 py-2.5 block h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden"
             placeholder="Добавить комментарий..."
           ></textarea>
-          <button className="absolute top-3 right-3">
+          <button className="absolute top-3 right-3 text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
