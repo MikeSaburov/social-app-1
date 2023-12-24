@@ -17,7 +17,7 @@ export const PostCard = () => {
         </div>
 
         <div>
-          <button>
+          <button className="text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
