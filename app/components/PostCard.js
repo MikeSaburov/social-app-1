@@ -25,11 +25,11 @@ export const PostCard = () => {
         <div>
           <img
             className="rounded-md overflow-hidden "
-            src="https://images.unsplash.com/photo-1702983100420-4f2a6eb136ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2NXx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1703023583530-da9a24fd4972?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
         </div>
       </div>
-      <div className="mt-4 flex gap-6 text-sm">
+      <div className="mt-4 flex gap-6 text-xs">
         <button className="flex gap-1 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,10 @@ export const PostCard = () => {
           126
         </button>
       </div>
-      <div className="mt-3">
+      <div className="mt-4 flex gap-3">
+        <div>
+          <Avatar />
+        </div>
         <textarea
           className="border grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
           placeholder="Оствить комметарий.."
