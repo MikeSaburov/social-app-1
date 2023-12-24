@@ -1,7 +1,14 @@
+'use client';
+
 import Card from './Card';
 import { Avatar } from './Avatar';
+import React from 'react';
+import ClickOutHandler from 'react-clickout-handler';
+import { useState } from 'react';
 
 export const PostCard = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <Card>
       <div className="flex gap-3">
@@ -17,7 +24,10 @@ export const PostCard = () => {
         </div>
 
         <div>
-          <button className="text-gray-400">
+          <button
+            className="text-gray-400"
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -33,6 +43,15 @@ export const PostCard = () => {
               />
             </svg>
           </button>
+          <ClickOutHandler onClickOut={() => {}}>
+            <div className="relative">
+              {dropdownOpen && (
+                <div className="absolute right-0 bg-white shadow-md shadow-gray-300 p-3 rounded-sm">
+                  DropDown
+                </div>
+              )}
+            </div>
+          </ClickOutHandler>
         </div>
       </div>
       <div>
