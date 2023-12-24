@@ -87,8 +87,8 @@ export const PostCard = () => {
           <Avatar />
         </div>
         <textarea
-          className="border grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
-          placeholder="Оствить комметарий.."
+          className="border grow  px-3 py-2.5 block h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
+          placeholder="Оставить комметарий.."
         ></textarea>
       </div>
     </Card>
