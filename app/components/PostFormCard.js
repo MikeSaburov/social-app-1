@@ -15,7 +15,7 @@ export const PostFormCard = () => {
       </div>
 
       {/* Блок кнопок */}
-      <div className="flex gap-5 items-center mt-2">
+      <div className="flex gap-5 items-center mt-2 text-xs">
         <div>
           <button className="flex gap-1">
             <svg
@@ -24,7 +24,7 @@ export const PostFormCard = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-4 h-4"
             >
               <path
                 strokeLinecap="round"
@@ -43,7 +43,7 @@ export const PostFormCard = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-4 h-4"
             >
               <path
                 strokeLinecap="round"
@@ -67,7 +67,7 @@ export const PostFormCard = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-4 h-4"
             >
               <path
                 strokeLinecap="round"
