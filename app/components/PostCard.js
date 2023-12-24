@@ -82,7 +82,12 @@ export const PostCard = () => {
           126
         </button>
       </div>
-      <div></div>
+      <div className="mt-3">
+        <textarea
+          className="border grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
+          placeholder="Оствить комметарий.."
+        ></textarea>
+      </div>
     </Card>
   );
 };
