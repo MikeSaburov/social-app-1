@@ -5,6 +5,7 @@ import { Avatar } from './Avatar';
 import React from 'react';
 import ClickOutHandler from 'react-clickout-handler';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export const PostCard = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -21,14 +22,20 @@ export const PostCard = () => {
   return (
     <Card>
       <div className="flex gap-3">
-        <div>
-          <Avatar />
+        <div className=" hover:scale-125 transition ease-in">
+          <Link href={'/profile'}>
+            <span className="cursor-pointer">
+              <Avatar />
+            </span>
+          </Link>
         </div>
         <div className="grow">
           <p>
-            <a className="font-semibold hover:underline cursor-pointer hover:text-blue-700 hover:text-opacity-90 ">
-              Данила Мастер
-            </a>{' '}
+            <Link href={'/profile'}>
+              <span className="font-semibold hover:underline cursor-pointer mr-2">
+                Данила Мастер
+              </span>
+            </Link>
             поделился <a className="text-socialBlue">фото</a>
           </p>
           <p className="text-gray-500 text-sm">2 часа назад</p>
