@@ -32,7 +32,7 @@ export const PostCard = () => {
         <div className="grow">
           <p>
             <Link href={'/profile'}>
-              <span className="font-semibold hover:underline cursor-pointer mr-2">
+              <span className="font-semibold hover:underline 5 cursor-pointer mr-2">
                 Данила Мастер
               </span>
             </Link>
@@ -81,7 +81,7 @@ export const PostCard = () => {
           <ClickOutHandler onClickOut={handleClickOutsideDropdown}>
             <div className="relative">
               {dropdownOpen && (
-                <div className="absolute -right-6 bg-white shadow-md shadow-gray-300 p-3 rounded-sm border border-gray-100 w-52 animate-flip-down animate-once animate-duration-[800ms]">
+                <div className="absolute -right-6 bg-white shadow-md shadow-gray-300 p-3 rounded-sm border border-gray-100 w-52 animate-flip-down animate-once animate-duration-[800ms] ">
                   <a
                     href=""
                     className="flex py-3 px-2 gap-2 hover:bg-blue-500 hover:bg-opacity-20  rounded-md translate-all hover:scale-105 hover:shadow-md hover:shadow-gray-300"
