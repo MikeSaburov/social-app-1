@@ -35,7 +35,7 @@ export const PostCard = () => {
         <div className="relative">
           <button className="text-gray-400" onClick={openDropdown}>
             {dropdownOpen ? (
-              <div className="w-5 h-5 absolute top-0 right-1">
+              <div className="w-5 h-5 absolute top-0 right-1 animate-fade animate-once animate-duration-[500ms]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -58,7 +58,7 @@ export const PostCard = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 animate-fade animate-once animate-duration-[500ms]"
               >
                 <path
                   strokeLinecap="round"
