@@ -26,8 +26,10 @@ export const PostCard = () => {
         </div>
         <div className="grow">
           <p>
-            <a className="font-semibold ">Данила Мастер</a> поделился{' '}
-            <a className="text-socialBlue">фото</a>
+            <a className="font-semibold hover:underline cursor-pointer hover:text-blue-700 hover:text-opacity-90 ">
+              Данила Мастер
+            </a>{' '}
+            поделился <a className="text-socialBlue">фото</a>
           </p>
           <p className="text-gray-500 text-sm">2 часа назад</p>
         </div>
