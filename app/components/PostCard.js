@@ -32,7 +32,7 @@ export const PostCard = () => {
         <div className="grow">
           <p>
             <Link href={'/profile'}>
-              <span className="font-semibold hover:underline 5 cursor-pointer mr-2">
+              <span className="font-semibold hover:underline 5 cursor-pointer mr-1">
                 Данила Мастер
               </span>
             </Link>
