@@ -26,7 +26,7 @@ export const PostCard = () => {
         </div>
         <div className="grow">
           <p>
-            <a className="font-semibold">Данила Мастер</a> поделился{' '}
+            <a className="font-semibold ">Данила Мастер</a> поделился{' '}
             <a className="text-socialBlue">фото</a>
           </p>
           <p className="text-gray-500 text-sm">2 часа назад</p>
@@ -153,7 +153,10 @@ export const PostCard = () => {
                     </svg>
                     Удалить пост
                   </a>
-                  <a href="" className="flex py-3 px-2 gap-2">
+                  <a
+                    href=""
+                    className="flex py-3 px-2 gap-2 hover:bg-blue-500 hover:bg-opacity-20  rounded-md translate-all hover:scale-105 hover:shadow-md hover:shadow-gray-300"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
