@@ -10,7 +10,7 @@ export default function Layout({ children }) {
           name="description"
           content="Social media website using React, Tailwind, Next, HTML, and CSS"
         />
-        <link rel="icon" href="/icon.jpg" />
+        <link rel="icon" href="/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400&display=swap"
