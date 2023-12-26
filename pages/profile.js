@@ -18,7 +18,12 @@ export default function Profile() {
           </div>
 
           <div className="p-4 pb-24">
-            <h1 className="ml-40 text-3xl font-bold">Данила Мастер</h1>
+            <div className="ml-40">
+              <h1 className=" text-3xl font-bold">Данила Мастер</h1>
+              <div className="text-gray-500 leading-4">
+                Южно-Сахалинск, Россия
+              </div>
+            </div>
           </div>
         </div>
       </Card>
