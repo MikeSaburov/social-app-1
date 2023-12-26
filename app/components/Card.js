@@ -1,5 +1,6 @@
 export default function Card({ children, noPadding }) {
-  let classes = 'bg-white shadow-md shadow-gray-300 rounded-md mb-4';
+  let classes =
+    'bg-white shadow-md shadow-gray-300 rounded-md mb-4 overflow-hidden';
 
   if (!noPadding) {
     classes += ' p-4';
