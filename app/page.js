@@ -1,4 +1,4 @@
-import Layout from '../app/components/Layout';
+import Layout from './components/Layout';
 import { PostCard } from './components/PostCard';
 import { PostFormCard } from './components/PostFormCard';
 
