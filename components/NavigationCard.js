@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import Card from './Card';
+import { useRouter } from 'next/router';
 
 export const NavigationCard = () => {
+  const router = useRouter();
+  console.log(router);
+
   const activeElement =
     'flex gap-3 py-3 bg-socialBlue text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300';
   const nonActiveElement =
