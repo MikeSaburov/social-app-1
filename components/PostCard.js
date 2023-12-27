@@ -190,9 +190,12 @@ export const PostCard = () => {
       </div>
       <div>
         <p className="my-3 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, sed
-          enim. Doloremque, aut labore saepe dolorem tenetur vero dolores culpa
-          nam, quod recusandae, accusantium eius sit. Nobis facere maxime magni.
+          И нет сомнений, что реплицированные с зарубежных источников,
+          современные исследования неоднозначны и будут указаны как претенденты
+          на роль ключевых факторов. Значимость этих проблем настолько очевидна,
+          что начало повседневной работы по формированию позиции выявляет
+          срочную потребность экономической целесообразности принимаемых
+          решений.
         </p>
         <div>
           <img

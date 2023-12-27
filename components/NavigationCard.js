@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Card from './Card';
 
 export const NavigationCard = () => {
@@ -11,7 +12,7 @@ export const NavigationCard = () => {
       <div className="px-4 py-2">
         <h2 className="text-gray-500 mb-3">Меню</h2>
 
-        <a href="" className={activeElement}>
+        <Link href={'/'} className={activeElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -27,7 +28,7 @@ export const NavigationCard = () => {
             />
           </svg>
           Домой
-        </a>
+        </Link>
         <a href="" className={nonActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
