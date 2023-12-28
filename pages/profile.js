@@ -40,7 +40,7 @@ export default function Profile() {
               </div>
             </div>
             <div className="mt-10 flex gap-0">
-              <Link href="/" className={activeTabClasses}>
+              <Link href={'/profile/posts'} className={activeTabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -57,7 +57,7 @@ export default function Profile() {
                 </svg>
                 Посты
               </Link>
-              <Link href="" className={tabClasses}>
+              <Link href={'profile/about'} className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -74,7 +74,7 @@ export default function Profile() {
                 </svg>
                 Обо мне
               </Link>
-              <Link href="" className={tabClasses}>
+              <Link href={'profile/friends'} className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -91,7 +91,7 @@ export default function Profile() {
                 </svg>
                 Друзья
               </Link>
-              <Link href="" className={tabClasses}>
+              <Link href={'prifile/photos'} className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
