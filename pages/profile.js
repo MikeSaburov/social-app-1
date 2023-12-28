@@ -19,15 +19,18 @@ export default function Profile() {
             <Avatar size={'lg'} />
           </div>
 
-          <div className="p-4 pb-5">
+          <div className="p-4 pb-0">
             <div className="ml-40">
               <h1 className=" text-3xl font-bold">Данила Мастер</h1>
               <div className="text-gray-500 leading-5">
                 Южно-Сахалинск, Россия
               </div>
             </div>
-            <div className="mt-10 flex gap-5">
-              <Link href="/" className="flex gap-1 items-center">
+            <div className="mt-10 flex gap-0">
+              <Link
+                href="/"
+                className="flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -44,7 +47,10 @@ export default function Profile() {
                 </svg>
                 Посты
               </Link>
-              <Link href="" className="flex gap-1 items-center">
+              <Link
+                href=""
+                className="flex gap-1 px-2 py-1 items-center border-b-4 border-b-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -61,7 +67,10 @@ export default function Profile() {
                 </svg>
                 Обо мне
               </Link>
-              <Link href="" className="flex gap-1 items-center">
+              <Link
+                href=""
+                className="flex gap-1 px-2 py-1 items-center  border-b-4 border-b-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -78,7 +87,10 @@ export default function Profile() {
                 </svg>
                 Друзья
               </Link>
-              <Link href="" className="flex gap-1 items-center">
+              <Link
+                href=""
+                className="flex gap-1 px-2 py-1 items-center  border-b-4 border-b-white"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
