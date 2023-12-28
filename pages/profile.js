@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { PostCard } from '@/components/PostCard';
 import { useRouter } from 'next/router';
 
-export default function Profile() {
+export default function ProfilePage() {
   const router = useRouter();
-  const { pathname } = router;
+  const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
   const isAbout = pathname.includes('about');
   const isFriends = pathname.includes('friends');
