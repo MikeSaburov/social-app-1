@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import Layout from '../components/Layout';
 import { Avatar } from '../components/Avatar';
 import Link from 'next/link';
+import { PostCard } from '@/components/PostCard';
 
 export default function Profile() {
   return (
@@ -103,6 +104,7 @@ export default function Profile() {
           </div>
         </div>
       </Card>
+      <PostCard />
     </Layout>
   );
 }
