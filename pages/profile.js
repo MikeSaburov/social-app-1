@@ -135,9 +135,27 @@ export default function ProfilePage() {
         </div>
       )}
 
-      {isAbout && <div>Это страница обо мне</div>}
-      {isFriends && <div>Это страница о моих друзьях</div>}
-      {isPhotos && <div>Тут фотки мои</div>}
+      {isAbout && (
+        <div>
+          <Card>
+            <h1>Это страница обо мне</h1>
+          </Card>
+        </div>
+      )}
+      {isFriends && (
+        <div>
+          <Card>
+            <h1>Это страница о моих друзьях</h1>
+          </Card>
+        </div>
+      )}
+      {isPhotos && (
+        <div>
+          <Card>
+            <h1>Тут фотки мои</h1>
+          </Card>
+        </div>
+      )}
     </Layout>
   );
 }
