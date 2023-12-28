@@ -18,7 +18,7 @@ export default function Profile() {
             <Avatar size={'lg'} />
           </div>
 
-          <div className="p-4 pb-24">
+          <div className="p-4 pb-5">
             <div className="ml-40">
               <h1 className=" text-3xl font-bold">Данила Мастер</h1>
               <div className="text-gray-500 leading-5">
