@@ -3,8 +3,21 @@ import Layout from '../components/Layout';
 import { Avatar } from '../components/Avatar';
 import Link from 'next/link';
 import { PostCard } from '@/components/PostCard';
+import { useRouter } from 'next/router';
 
 export default function Profile() {
+  const router = useRouter();
+  const { pathname } = router;
+  const isPosts = pathname.includes('posts') || pathname === '/profile';
+  const isAbout = pathname.includes('about');
+  const isFriends = pathname.includes('friends');
+  const isPhotos = pathname.includes('photos');
+
+  const tabClasses =
+    'flex gap-1 px-2 py-1 items-center border-b-4 border-b-white';
+  const activeTabClasses =
+    'flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold';
+
   return (
     <Layout>
       <Card noPadding={true}>
@@ -27,10 +40,7 @@ export default function Profile() {
               </div>
             </div>
             <div className="mt-10 flex gap-0">
-              <Link
-                href="/"
-                className="flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold"
-              >
+              <Link href="/" className={activeTabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -47,10 +57,7 @@ export default function Profile() {
                 </svg>
                 Посты
               </Link>
-              <Link
-                href=""
-                className="flex gap-1 px-2 py-1 items-center border-b-4 border-b-white"
-              >
+              <Link href="" className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -67,10 +74,7 @@ export default function Profile() {
                 </svg>
                 Обо мне
               </Link>
-              <Link
-                href=""
-                className="flex gap-1 px-2 py-1 items-center  border-b-4 border-b-white"
-              >
+              <Link href="" className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -87,10 +91,7 @@ export default function Profile() {
                 </svg>
                 Друзья
               </Link>
-              <Link
-                href=""
-                className="flex gap-1 px-2 py-1 items-center  border-b-4 border-b-white"
-              >
+              <Link href="" className={tabClasses}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
