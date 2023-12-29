@@ -138,7 +138,7 @@ export default function ProfilePage() {
       {isAbout && (
         <div>
           <Card>
-            <h1 className="text-2xl mb-2">Это страница обо мне</h1>
+            <h2 className="text-2xl mb-2 font-medium">Это страница обо мне</h2>
             <p className="mb-4 text-sm">
               С учётом сложившейся международной обстановки, высокотехнологичная
               концепция общественного уклада говорит о возможностях модели
