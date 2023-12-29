@@ -163,8 +163,16 @@ export default function ProfilePage() {
       {isFriends && (
         <div>
           <Card>
-            <h2 className="text-2xl mb-2 font-medium">Мои друзья</h2>
-            <FriendsInfo />
+            <div>
+              <h2 className="text-2xl mb-2 font-medium">Мои друзья</h2>
+              <div className="border-b border-b-gray-100 p-4 -mx-4">
+                <FriendsInfo />
+              </div>
+
+              <div className="border-b border-b-gray-100 p-4 -mx-4">
+                <FriendsInfo />
+              </div>
+            </div>
           </Card>
         </div>
       )}
