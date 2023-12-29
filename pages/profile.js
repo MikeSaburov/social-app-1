@@ -179,7 +179,36 @@ export default function ProfilePage() {
       {isPhotos && (
         <div>
           <Card>
-            <h2 className="text-2xl mb-2 font-medium">Мои фотографии</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-md overflow-hidden h-36 flex items-center shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1571732267057-85da3fe8b25a?q=80&w=919&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+              <div className="rounded-md overflow-hidden h-36 flex items-center shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1505551071487-d4a3fd384857?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+
+              <div className="rounded-md overflow-hidden h-36 flex items-center shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1577055696946-fb4ecc2835e0?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+
+              <div className="rounded-md overflow-hidden h-36 flex items-center shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1559029881-7cfd01ac1f18?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            {/* <h2 className="text-2xl mb-2 font-medium">Мои фотографии</h2> */}
           </Card>
         </div>
       )}
