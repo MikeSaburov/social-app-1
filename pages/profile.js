@@ -163,15 +163,6 @@ export default function ProfilePage() {
         <div>
           <Card>
             <h2 className="text-2xl mb-2 font-medium">Мои друзья</h2>
-            <div>
-              <div className="flex gap-3 items-center">
-                <Avatar />
-                <div>
-                  <h3 className="font-bold text-md">Данила Мастер</h3>
-                  <div className="text-sm leading-3">5 общих друзей</div>
-                </div>
-              </div>
-            </div>
           </Card>
         </div>
       )}
