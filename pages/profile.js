@@ -4,6 +4,7 @@ import { Avatar } from '../components/Avatar';
 import Link from 'next/link';
 import { PostCard } from '@/components/PostCard';
 import { useRouter } from 'next/router';
+import { FriendsInfo } from '@/components/FriendsInfo';
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -163,6 +164,7 @@ export default function ProfilePage() {
         <div>
           <Card>
             <h2 className="text-2xl mb-2 font-medium">Мои друзья</h2>
+            <FriendsInfo />
           </Card>
         </div>
       )}

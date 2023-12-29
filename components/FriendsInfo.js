@@ -1,3 +1,5 @@
+import { Avatar } from './Avatar';
+
 export const FriendsInfo = () => {
   return (
     <div>
