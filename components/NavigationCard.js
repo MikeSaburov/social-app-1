@@ -62,7 +62,14 @@ export const NavigationCard = () => {
           </svg>
           Друзья
         </Link>
-        <Link href="/saved" className={nonActiveElementClasses}>
+        <Link
+          href="/saved"
+          className={
+            pathname === '/saved'
+              ? activeElementClasses
+              : nonActiveElementClasses
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
