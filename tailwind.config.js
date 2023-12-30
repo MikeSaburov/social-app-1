@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         socialBg: '#F5F7FB',
         socialBlue: '#218DFA',
+        mail: '#FF9E01',
       },
     },
   },
