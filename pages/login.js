@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
 
 export default function LoginPage() {
-  return <Layout>Login</Layout>;
+  return <Layout hideNavigation={true}>Login</Layout>;
 }
