@@ -8,9 +8,12 @@ export default function LoginPage() {
         <div className="max-w-xs grow mx-auto ">
           <h1 className="text-5xl text-gray-400 mb-4 text-center">Вход</h1>
           <Card>
-            <a href="" className="flex gap-3 items-center justify-center p-4">
+            <a
+              href=""
+              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+            >
               <svg
-                className="h-8"
+                className="h-8 "
                 viewBox="0 0 533.5 544.3"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -34,9 +37,12 @@ export default function LoginPage() {
               <p className="min-w-40">Войти через Google</p>
             </a>
 
-            <a href="" className="flex gap-3 items-center justify-center p-4">
+            <a
+              href=""
+              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+            >
               <svg
-                className="h-8 fill-blue-500"
+                className="h-8 fill-blue-500 "
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
@@ -46,7 +52,10 @@ export default function LoginPage() {
               <p className="min-w-40"> Войти через VK</p>
             </a>
 
-            <a href="" className="flex gap-3 items-center justify-center p-4">
+            <a
+              href=""
+              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+            >
               <svg
                 className="h-8 fill-mail"
                 xmlns="http://www.w3.org/2000/svg"
