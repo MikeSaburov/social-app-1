@@ -11,10 +11,10 @@ export default function LoginPage() {
             <div className="rounded-md overflow-hidden">
               <a
                 href=""
-                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
+                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-125"
               >
                 <svg
-                  className="h-8 "
+                  className="h-8"
                   viewBox="0 0 533.5 544.3"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -40,10 +40,10 @@ export default function LoginPage() {
 
               <a
                 href=""
-                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all  hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
+                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all  hover:border-b-socialBlue hover:border-opacity-10 hover:scale-125"
               >
                 <svg
-                  className="h-8 fill-blue-500 "
+                  className="h-8 fill-blue-500  "
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >
@@ -55,7 +55,7 @@ export default function LoginPage() {
 
               <a
                 href=""
-                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100  hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
+                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100  hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-125"
               >
                 <svg
                   className="h-8 fill-mail"
