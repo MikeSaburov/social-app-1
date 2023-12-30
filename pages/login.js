@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
 
-export default function Login() {
+export default function LoginPage() {
   return <Layout>Login</Layout>;
 }
