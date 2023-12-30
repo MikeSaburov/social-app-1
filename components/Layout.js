@@ -19,7 +19,9 @@ export default function Layout({ children, hideNavigation }) {
           </div>
         )}
 
-        <div className="w-9/12 mr-1">{children}</div>
+        <div className={hideNavigation ? 'w-full' : 'w-9/12 mr-1'}>
+          {children}
+        </div>
       </div>
     </div>
   );
