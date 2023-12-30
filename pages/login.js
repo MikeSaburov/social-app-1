@@ -10,7 +10,7 @@ export default function LoginPage() {
           <Card>
             <a
               href=""
-              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+              className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:text-socialBlue hover:underline"
             >
               <svg
                 className="h-8 "
@@ -39,7 +39,7 @@ export default function LoginPage() {
 
             <a
               href=""
-              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+              className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:text-socialBlue hover:underline"
             >
               <svg
                 className="h-8 fill-blue-500 "
@@ -54,7 +54,7 @@ export default function LoginPage() {
 
             <a
               href=""
-              className="flex gap-3 items-center justify-center p-4 hover:text-socialBlue hover:underline"
+              className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:text-socialBlue hover:underline"
             >
               <svg
                 className="h-8 fill-mail"
