@@ -7,7 +7,7 @@ export default function LoginPage() {
       <div className="h-screen flex items-center -mt-24">
         <div className="max-w-xs grow mx-auto ">
           <h1 className="text-5xl text-gray-400 mb-4 text-center">Вход</h1>
-          <Card>
+          <Card noPadding={true}>
             <a
               href=""
               className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:text-socialBlue hover:underline"
