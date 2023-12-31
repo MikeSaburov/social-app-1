@@ -20,7 +20,7 @@ export default function Layout({ children, hideNavigation }) {
         />
         <link rel="icon" href="/icon.png" />
       </Head>
-      <div className="md:flex mt-4  max-w-4xl mx-auto md:gap-1 lg:gap-4">
+      <div className="md:flex mt-4  max-w-4xl mx-auto md:gap-1 lg:gap-4 mb-24 md:mb-0">
         {!hideNavigation && (
           <div className="fixed md:static md:ml-2 w-full bottom-0 -mb-5 md:w-4/12 lg:w-3/12 ">
             <NavigationCard />
