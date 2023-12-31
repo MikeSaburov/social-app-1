@@ -35,8 +35,8 @@ export default function ProfilePage() {
 
           <div className="py-1 px-5 mb:p-4 pb-0">
             <div className="ml-24 md:ml-40">
-              <h1 className="text-2xl md:text-3xl font-bold">Данила Мастер</h1>
-              <div className="text-gray-500 leading-5">
+              <h1 className="text-xl md:text-3xl font-bold">Данила Мастер</h1>
+              <div className="text-gray-500 leading-4 text-sm md:text-xl ">
                 Южно-Сахалинск, Россия
               </div>
             </div>
