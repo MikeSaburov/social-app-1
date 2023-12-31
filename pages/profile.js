@@ -33,14 +33,14 @@ export default function ProfilePage() {
             <Avatar size={'lg'} />
           </div>
 
-          <div className="p-4 pb-0">
+          <div className="py-1 px-5 mb:p-4 pb-0">
             <div className="ml-24 md:ml-40">
-              <h1 className=" text-3xl font-bold">Данила Мастер</h1>
+              <h1 className="text-2xl md:text-3xl font-bold">Данила Мастер</h1>
               <div className="text-gray-500 leading-5">
                 Южно-Сахалинск, Россия
               </div>
             </div>
-            <div className="mt-10 flex gap-0">
+            <div className="mt-5 md:mt-10 flex gap-0">
               <Link
                 href={'/profile/posts'}
                 className={isPosts ? activeTabClasses : tabClasses}
