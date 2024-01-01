@@ -13,7 +13,7 @@ export const NavigationCard = () => {
 
   return (
     <Card noPadding={true}>
-      <div className="px-4 py-2 flex justify-between z-10 md:block shadow-md shadow-gray-400 md:shadow-none">
+      <div className="px-4 py-2 flex justify-between bg-white   w-full md:block shadow-md shadow-gray-400 md:shadow-none">
         <h2 className="text-gray-500 mb-3 hidden md:block">Меню</h2>
 
         <Link
