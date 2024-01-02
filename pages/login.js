@@ -1,7 +1,16 @@
 import Card from '@/components/Card';
 import Layout from '@/components/Layout';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function LoginPage() {
+  const supabase = useSupabaseClient();
+
+  async function loginWithGoogle() {
+    await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    });
+  }
+
   return (
     <Layout hideNavigation={true}>
       <div className="h-screen flex items-center -mt-24">
@@ -9,9 +18,9 @@ export default function LoginPage() {
           <h1 className="text-5xl text-gray-400 mb-4 text-center">Вход</h1>
           <Card noPadding={true}>
             <div className="rounded-md overflow-hidden">
-              <a
-                href="/"
-                className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
+              <button
+                onClick={loginWithGoogle}
+                className="flex w-full gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
               >
                 <svg
                   className="h-8"
@@ -36,7 +45,7 @@ export default function LoginPage() {
                   />
                 </svg>
                 <p className="min-w-40">Войти через Google</p>
-              </a>
+              </button>
 
               <a
                 href=""
