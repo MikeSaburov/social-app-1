@@ -1,4 +1,7 @@
 import '../styles/globals.css';
+import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import { useState } from 'react';
 
 import { Roboto } from 'next/font/google';
 
@@ -8,9 +11,16 @@ const roboto = Roboto({
 });
 
 export default function MyApp({ Component, pageProps }) {
+  const [supabaseClient] = useState(() => createPagesBrowserClient());
+
   return (
-    <main className={roboto.className}>
-      <Component {...pageProps} />
-    </main>
+    <SessionContextProvider
+      supabaseClient={supabaseClient}
+      initialSession={pageProps.initialSession}
+    >
+      <main className={roboto.className}>
+        <Component {...pageProps} />
+      </main>
+    </SessionContextProvider>
   );
 }
