@@ -10,7 +10,7 @@ export default function LoginPage() {
           <Card noPadding={true}>
             <div className="rounded-md overflow-hidden">
               <a
-                href=""
+                href="/"
                 className="flex gap-3 items-center justify-center p-4 border-b border-b-gray-100 hover:bg-socialBlue hover:bg-opacity-50 hover:text-white transition-all hover:border-b-socialBlue hover:border-opacity-10 hover:scale-110"
               >
                 <svg
