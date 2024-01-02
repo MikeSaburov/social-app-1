@@ -1,16 +1,37 @@
+'use client';
+import { useEffect, useState } from 'react';
+
 import { Avatar } from './Avatar';
 import Card from './Card';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export const PostFormCard = () => {
+  const [profile, setProfile] = useState({});
+  const supabase = useSupabaseClient();
+  const session = useSession();
+
+  useEffect(() => {
+    // console.log(session.user);
+    supabase
+      .from('profiles')
+      .select()
+      .eq('id', session.user.id)
+      .then((res) => {
+        if (res.data.length) {
+          setProfile(res.data[0]);
+        }
+      });
+  }, []);
+
   return (
     <Card>
       <div className="flex gap-2">
         <div>
-          <Avatar />
+          <Avatar url={profile.avatar} />
         </div>
         <textarea
           className="grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
-          placeholder={'Что ты хочешь рассказать, Данил?'}
+          placeholder={`Что ты хочешь рассказать, ${profile.name}?`}
         ></textarea>
       </div>
 
