@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Card from './Card';
 import { useRouter } from 'next/router';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export const NavigationCard = () => {
   const router = useRouter();
@@ -11,7 +12,11 @@ export const NavigationCard = () => {
   const nonActiveElementClasses =
     'text-sm md:text-md flex gap-1 md:gap-3 py-2 my-2 hover:bg-blue-500 hover:bg-opacity-20  px-6 md:px-4 rounded-md translate-all hover:scale-105 hover:shadow-md hover:shadow-gray-300';
 
-  function logout() {}
+  const supabase = useSupabaseClient();
+
+  async function logout() {
+    await supabase.auth.signOut();
+  }
 
   return (
     <Card noPadding={true}>
