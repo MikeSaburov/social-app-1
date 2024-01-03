@@ -7,6 +7,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export const PostFormCard = () => {
   const [profile, setProfile] = useState({});
+  const [content, setContent] = useState('');
   const supabase = useSupabaseClient();
   const session = useSession();
 
@@ -30,6 +31,8 @@ export const PostFormCard = () => {
           <Avatar url={profile.avatar} />
         </div>
         <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
           className="grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
           placeholder={`Что ты хочешь рассказать, ${profile.name}?`}
         ></textarea>
