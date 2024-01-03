@@ -24,6 +24,18 @@ export const PostFormCard = () => {
       });
   }, []);
 
+  function creteNewPost() {
+    supabase
+      .from('posts')
+      .insert({
+        author: session.user.id,
+        content,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  }
+
   return (
     <Card>
       <div className="flex gap-2">
@@ -105,7 +117,10 @@ export const PostFormCard = () => {
           </button>
         </div>
         <div className="grow text-right">
-          <button className="bg-socialBlue text-white px-4 py-1 rounded-md">
+          <button
+            onClick={creteNewPost}
+            className="bg-socialBlue text-white px-4 py-1 rounded-md"
+          >
             Поделиться
           </button>
         </div>
