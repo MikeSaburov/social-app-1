@@ -7,7 +7,7 @@ import ClickOutHandler from 'react-clickout-handler';
 import { useState } from 'react';
 import Link from 'next/link';
 
-export const PostCard = () => {
+export const PostCard = ({ content }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   function openDropdown() {
@@ -189,11 +189,7 @@ export const PostCard = () => {
         </div>
       </div>
       <div>
-        <p className="my-3 text-sm">
-          И нет сомнений, что реплицированные с зарубежных источников,
-          современные исследования неоднозначны и будут указаны как претенденты
-          на роль ключевых факторов.
-        </p>
+        <p className="my-3 text-sm">{content}</p>
         <div>
           <img
             className="rounded-md overflow-hidden "
