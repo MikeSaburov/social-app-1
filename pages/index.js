@@ -16,7 +16,7 @@ export default function Home() {
       .from('posts')
       .select()
       .then((res) => {
-        console.log(res);
+        setPosts(res.data);
       });
   }, []);
 
@@ -28,7 +28,9 @@ export default function Home() {
     <div>
       <Layout>
         <PostFormCard />
-        <PostCard />
+        {posts.map((post) => (
+          <PostCard key={post.id} {...post} />
+        ))}
       </Layout>
     </div>
   );
