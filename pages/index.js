@@ -14,7 +14,8 @@ export default function Home() {
   useEffect(() => {
     supabase
       .from('posts')
-      .select()
+      .select('id, content, created_at, profiles(id, avatar, name)')
+      .order('created_at', { ascending: false })
       .then((res) => {
         setPosts(res.data);
       });
@@ -29,7 +30,7 @@ export default function Home() {
       <Layout>
         <PostFormCard />
         {posts.map((post) => (
-          <PostCard key={post.id} {...post} />
+          <PostCard key={post.created_at} {...post} />
         ))}
       </Layout>
     </div>
