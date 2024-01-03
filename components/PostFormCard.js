@@ -32,7 +32,10 @@ export const PostFormCard = () => {
         content,
       })
       .then((res) => {
-        console.log(res);
+        if (!res.error) {
+          setContent('');
+          alert('Пост создан успешно!!!');
+        }
       });
   }
 
