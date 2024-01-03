@@ -30,12 +30,14 @@ export const PostFormCard = () => {
         <div>
           <Avatar url={profile.avatar} />
         </div>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          className="grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
-          placeholder={`Что ты хочешь рассказать, ${profile.name}?`}
-        ></textarea>
+        {profile.name && (
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className="grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
+            placeholder={`Что ты хочешь рассказать, ${profile.name}?`}
+          ></textarea>
+        )}
       </div>
 
       {/* Блок кнопок */}
