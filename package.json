@@ -18,6 +18,7 @@
     "react-clickout-handler": "^1.2.1",
     "react-clickout-ts": "^2023.6.1",
     "react-dom": "^18",
+    "react-time-ago": "^7.2.1",
     "tailwindcss-animated": "^1.0.1"
   },
   "devDependencies": {
