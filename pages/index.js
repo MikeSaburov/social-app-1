@@ -25,13 +25,14 @@ export default function Home() {
     return <LoginPage />;
   }
 
+  console.log(posts);
+
   return (
     <div>
       <Layout>
         <PostFormCard />
-        {posts.map((post) => (
-          <PostCard key={post.created_at} {...post} />
-        ))}
+        {posts?.length > 0 &&
+          posts.map((post) => <PostCard key={post.id} {...post} />)}
       </Layout>
     </div>
   );

@@ -7,7 +7,7 @@ import ClickOutHandler from 'react-clickout-handler';
 import { useState } from 'react';
 import Link from 'next/link';
 
-export const PostCard = ({ content, profiles }) => {
+export const PostCard = ({ content, profiles: profile }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   function openDropdown() {
@@ -19,13 +19,14 @@ export const PostCard = ({ content, profiles }) => {
     setDropdownOpen(false);
   }
 
+  console.log('profile', profile);
   return (
     <Card>
       <div className="flex gap-3">
         <div className=" hover:scale-125 transition ease-in">
           <Link href={'/profile'}>
             <span className="cursor-pointer">
-              <Avatar url={profiles.avatar} />
+              <Avatar url={profile.avatar} />
             </span>
           </Link>
         </div>
@@ -33,7 +34,7 @@ export const PostCard = ({ content, profiles }) => {
           <p>
             <Link href={'/profile'}>
               <span className="font-semibold hover:underline 5 cursor-pointer mr-1">
-                {profiles.name}
+                {profile.name}
               </span>
             </Link>
             поделился <a className="text-socialBlue">фото</a>
