@@ -42,7 +42,7 @@ export const PostCard = ({ content, created_at, profiles: profile }) => {
             поделился <a className="text-socialBlue">фото</a>
           </p>
           <p className="text-gray-500 text-sm">
-            <ReactTimeAgo date={created_at} />
+            <ReactTimeAgo date={created_at} locale="ru-RU" />
           </p>
         </div>
 
