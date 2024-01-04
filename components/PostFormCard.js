@@ -12,7 +12,6 @@ export const PostFormCard = ({ onPost }) => {
   const session = useSession();
 
   useEffect(() => {
-    // console.log(session.user);
     supabase
       .from('profiles')
       .select()
@@ -34,7 +33,9 @@ export const PostFormCard = ({ onPost }) => {
       .then((res) => {
         if (!res.error) {
           setContent('');
-          alert('Пост создан успешно!!!');
+          if (onPost) {
+            onPost();
+          }
         }
       });
   }

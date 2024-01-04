@@ -15,6 +15,7 @@ export default function Home() {
     fetchPosts();
   }, []);
 
+  //Получение всех постов с БД
   function fetchPosts() {
     supabase
       .from('posts')
