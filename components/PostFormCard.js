@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import Card from './Card';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
-export const PostFormCard = () => {
+export const PostFormCard = ({ onPost }) => {
   const [profile, setProfile] = useState({});
   const [content, setContent] = useState('');
   const supabase = useSupabaseClient();

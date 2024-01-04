@@ -12,6 +12,10 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  function fetchPosts() {
     supabase
       .from('posts')
       .select('id, content, created_at, profiles(id, avatar, name)')
@@ -19,7 +23,7 @@ export default function Home() {
       .then((res) => {
         setPosts(res.data);
       });
-  }, []);
+  }
 
   if (!session) {
     return <LoginPage />;
@@ -30,7 +34,7 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <PostFormCard />
+        <PostFormCard onPost={fetchPosts} />
         {posts?.length > 0 &&
           posts.map((post) => <PostCard key={post.id} {...post} />)}
       </Layout>
