@@ -13,6 +13,7 @@
     "@supabase/auth-helpers-react": "^0.4.2",
     "@supabase/ssr": "^0.0.10",
     "@supabase/supabase-js": "^2.39.1",
+    "javascript-time-ago": "^2.5.9",
     "next": "14.0.4",
     "react": "^18",
     "react-clickout-handler": "^1.2.1",
