@@ -7,6 +7,7 @@ import { UserContext } from '@/context/UserContext';
 
 export const PostFormCard = ({ onPost }) => {
   const [content, setContent] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
   const [uploads, setUploads] = useState([]);
   const supabase = useSupabaseClient();
   const session = useSession();
@@ -33,6 +34,7 @@ export const PostFormCard = ({ onPost }) => {
 
   function addPhotos(e) {
     const files = e.target.files;
+    setIsUploading(true);
     for (const file of files) {
       const newName = Date.now() + file.name;
       supabase.storage
@@ -46,6 +48,7 @@ export const PostFormCard = ({ onPost }) => {
               res.data.path;
 
             setUploads((prevUploads) => [...prevUploads, url]);
+            setIsUploading(false);
           }
         });
     }
@@ -66,6 +69,10 @@ export const PostFormCard = ({ onPost }) => {
           ></textarea>
         )}
       </div>
+
+      {isUploading && (
+        <div className="text-center">Идет загрузка... пожалуйста подождите</div>
+      )}
 
       {uploads.length > 0 && (
         <div className="flex gap-2">
