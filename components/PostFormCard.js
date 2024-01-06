@@ -31,9 +31,13 @@ export const PostFormCard = ({ onPost }) => {
   function addPhotos(e) {
     const files = e.target.files;
     for (const file of files) {
-      console.log(file);
       const newName = Date.now() + file.name;
-      console.log(newName);
+      supabase.storage
+        .from('photos')
+        .upload(newName, file)
+        .then((res) => {
+          console.log(res);
+        });
     }
   }
 
