@@ -1,9 +1,11 @@
+'use client';
 import { useContext, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import Card from './Card';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { UserContext } from '@/context/UserContext';
+import Preloader from './Preloader';
 
 export const PostFormCard = ({ onPost }) => {
   const [content, setContent] = useState('');
@@ -71,7 +73,9 @@ export const PostFormCard = ({ onPost }) => {
       </div>
 
       {isUploading && (
-        <div className="text-center">Идет загрузка... пожалуйста подождите</div>
+        <div>
+          <Preloader />
+        </div>
       )}
 
       {uploads.length > 0 && (
