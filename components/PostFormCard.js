@@ -28,6 +28,15 @@ export const PostFormCard = ({ onPost }) => {
       });
   }
 
+  function addPhotos(e) {
+    const files = e.target.files;
+    for (const file of files) {
+      console.log(file);
+      const newName = Date.now() + file.name;
+      console.log(newName);
+    }
+  }
+
   return (
     <Card>
       <div className="flex gap-2">
@@ -48,7 +57,12 @@ export const PostFormCard = ({ onPost }) => {
       <div className="flex gap-5 items-center mt-2 text-xs">
         <div>
           <label className="flex gap-1 cursor-pointer">
-            <input type="file" className="hidden" />
+            <input
+              type="file"
+              className="hidden"
+              multiple
+              onChange={addPhotos}
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
