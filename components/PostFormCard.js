@@ -47,7 +47,8 @@ export const PostFormCard = ({ onPost }) => {
       {/* Блок кнопок */}
       <div className="flex gap-5 items-center mt-2 text-xs">
         <div>
-          <button className="flex gap-1">
+          <label className="flex gap-1 cursor-pointer">
+            <input type="file" className="hidden" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -68,7 +69,7 @@ export const PostFormCard = ({ onPost }) => {
               />
             </svg>
             <span className="hidden md:block">Фото</span>
-          </button>
+          </label>
         </div>
         <div>
           <button className="flex gap-1">
