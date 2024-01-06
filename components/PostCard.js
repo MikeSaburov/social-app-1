@@ -2,15 +2,18 @@
 
 import Card from './Card';
 import { Avatar } from './Avatar';
-import React from 'react';
+import React, { useContext } from 'react';
 import ClickOutHandler from 'react-clickout-handler';
 import { useState } from 'react';
 import Link from 'next/link';
 
 import ReactTimeAgo from 'react-time-ago';
+import { UserContext } from '@/context/UserContext';
 
-export const PostCard = ({ content, created_at, profiles: profile }) => {
+export const PostCard = ({ content, created_at, profiles: authorProfile }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const { profile: myProfile } = useContext(UserContext);
 
   function openDropdown() {
     setDropdownOpen(!dropdownOpen);
@@ -21,14 +24,13 @@ export const PostCard = ({ content, created_at, profiles: profile }) => {
     setDropdownOpen(false);
   }
 
-  console.log('profile', profile);
   return (
     <Card>
       <div className="flex gap-3">
         <div className=" hover:scale-125 transition ease-in">
           <Link href={'/profile'}>
             <span className="cursor-pointer">
-              <Avatar url={profile.avatar} />
+              <Avatar url={authorProfile.avatar} />
             </span>
           </Link>
         </div>
@@ -36,7 +38,7 @@ export const PostCard = ({ content, created_at, profiles: profile }) => {
           <p>
             <Link href={'/profile'}>
               <span className="font-semibold hover:underline 5 cursor-pointer mr-1">
-                {profile.name}
+                {authorProfile.name}
               </span>
             </Link>
             поделился <a className="text-socialBlue">фото</a>
@@ -257,7 +259,7 @@ export const PostCard = ({ content, created_at, profiles: profile }) => {
       </div>
       <div className="mt-4 flex gap-3">
         <div>
-          <Avatar />
+          <Avatar url={myProfile?.avatar} />
         </div>
         <div className="border grow rounded-full md:relative">
           <div className="flex items-center">

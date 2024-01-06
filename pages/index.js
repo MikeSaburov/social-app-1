@@ -4,16 +4,33 @@ import { PostCard } from '../components/PostCard';
 import { PostFormCard } from '../components/PostFormCard';
 import LoginPage from './login';
 import { useEffect, useState } from 'react';
+import { UserContext } from '@/context/UserContext';
 
 export default function Home() {
   const supabase = useSupabaseClient();
   const session = useSession();
 
   const [posts, setPosts] = useState([]);
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     fetchPosts();
   }, []);
+
+  useEffect(() => {
+    if (!session?.user?.id) {
+      return;
+    }
+    supabase
+      .from('profiles')
+      .select()
+      .eq('id', session.user.id)
+      .then((res) => {
+        if (res.data.length) {
+          setProfile(res.data[0]);
+        }
+      });
+  }, [session?.user?.id]);
 
   //Получение всех постов с БД
   function fetchPosts() {
@@ -30,15 +47,13 @@ export default function Home() {
     return <LoginPage />;
   }
 
-  console.log(posts);
-
   return (
-    <div>
-      <Layout>
+    <Layout>
+      <UserContext.Provider value={{ profile }}>
         <PostFormCard onPost={fetchPosts} />
         {posts?.length > 0 &&
           posts.map((post) => <PostCard key={post.id} {...post} />)}
-      </Layout>
-    </div>
+      </UserContext.Provider>
+    </Layout>
   );
 }

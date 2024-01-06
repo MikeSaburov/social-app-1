@@ -1,27 +1,15 @@
-'use client';
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import Card from './Card';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { UserContext } from '@/context/UserContext';
 
 export const PostFormCard = ({ onPost }) => {
-  const [profile, setProfile] = useState({});
   const [content, setContent] = useState('');
   const supabase = useSupabaseClient();
   const session = useSession();
-
-  useEffect(() => {
-    supabase
-      .from('profiles')
-      .select()
-      .eq('id', session.user.id)
-      .then((res) => {
-        if (res.data.length) {
-          setProfile(res.data[0]);
-        }
-      });
-  }, []);
+  const { profile } = useContext(UserContext);
 
   function creteNewPost() {
     supabase
@@ -44,14 +32,14 @@ export const PostFormCard = ({ onPost }) => {
     <Card>
       <div className="flex gap-2">
         <div>
-          <Avatar url={profile.avatar} />
+          <Avatar url={profile?.avatar} />
         </div>
-        {profile.name && (
+        {profile?.name && (
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             className="grow p-3 block h-14 w-full text-sm text-gray-900 rounded-lg focus:border focus:ring-blue-500 focus:border-blue-500 outline-none"
-            placeholder={`Чем хотел бы поделиться, ${profile.name}?`}
+            placeholder={`Чем хотел бы поделиться, ${profile?.name}?`}
           ></textarea>
         )}
       </div>
