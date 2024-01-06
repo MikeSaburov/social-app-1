@@ -7,6 +7,7 @@ import { UserContext } from '@/context/UserContext';
 
 export const PostFormCard = ({ onPost }) => {
   const [content, setContent] = useState('');
+  const [uploads, setUploads] = useState([]);
   const supabase = useSupabaseClient();
   const session = useSession();
   const { profile } = useContext(UserContext);
@@ -28,6 +29,8 @@ export const PostFormCard = ({ onPost }) => {
       });
   }
 
+  // https://cogsotxodehoogxvpmey.supabase.co/storage/v1/object/public/photos/1704538352622121410.jpg
+
   function addPhotos(e) {
     const files = e.target.files;
     for (const file of files) {
@@ -36,7 +39,13 @@ export const PostFormCard = ({ onPost }) => {
         .from('photos')
         .upload(newName, file)
         .then((res) => {
-          console.log(res);
+          if (res.data) {
+            const url =
+              process.env.NEXT_PUBLIC_SUPABASE_URL +
+              '/storage/v1/object/public/photos/' +
+              res.data.path;
+            console.log(url);
+          }
         });
     }
   }
