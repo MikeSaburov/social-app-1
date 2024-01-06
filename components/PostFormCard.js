@@ -44,7 +44,8 @@ export const PostFormCard = ({ onPost }) => {
               process.env.NEXT_PUBLIC_SUPABASE_URL +
               '/storage/v1/object/public/photos/' +
               res.data.path;
-            console.log(url);
+
+            setUploads((prevUploads) => [...prevUploads, url]);
           }
         });
     }
@@ -65,6 +66,16 @@ export const PostFormCard = ({ onPost }) => {
           ></textarea>
         )}
       </div>
+
+      {uploads.length > 0 && (
+        <div className="flex gap-2">
+          {uploads.map((upload) => (
+            <div key={upload} className="">
+              <img src={upload} alt="" className="w-auto h-24 rounded-md" />
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Блок кнопок */}
       <div className="flex gap-5 items-center mt-2 text-xs">
