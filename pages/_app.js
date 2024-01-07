@@ -4,10 +4,9 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 import TimeAgo from 'javascript-time-ago';
 
-import en from 'javascript-time-ago/locale/en.json';
 import ru from 'javascript-time-ago/locale/ru.json';
 
-TimeAgo.addDefaultLocale(en);
+TimeAgo.setDefaultLocale(ru.locale);
 TimeAgo.addLocale(ru);
 
 import { Roboto } from 'next/font/google';

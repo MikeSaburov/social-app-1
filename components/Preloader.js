@@ -1,7 +1,5 @@
-import BounceLoader from 'react-spinners/BounceLoader';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 export default function Preloader() {
-  return (
-    <BounceLoader color={'#218DFA'} size={30} ar className="block m-auto" />
-  );
+  return <PuffLoader color={'#218DFA'} size={40} className="block m-auto" />;
 }
