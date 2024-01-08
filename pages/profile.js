@@ -58,7 +58,7 @@ export default function ProfilePage() {
             />
           </div>
           <div className="absolute top-24 left-4">
-            <Avatar size={'lg'} url={profile?.avatar} />
+            {profile && <Avatar size={'lg'} url={profile?.avatar} />}
           </div>
 
           <div className="py-1 px-5 mb:p-4 pb-0">
