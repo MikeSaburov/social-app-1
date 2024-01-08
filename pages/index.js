@@ -36,7 +36,7 @@ export default function Home() {
   function fetchPosts() {
     supabase
       .from('posts')
-      .select('id, content, photos, created_at, profiles(id, avatar, name)')
+      .select('id, content, created_at, photos profiles(id, avatar, name)')
       .order('created_at', { ascending: false })
       .then((res) => {
         setPosts(res.data);
