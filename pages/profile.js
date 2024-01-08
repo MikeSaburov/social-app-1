@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { FriendsInfo } from '@/components/FriendsInfo';
 import { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import Cover from '@/components/Cover';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -49,9 +50,7 @@ export default function ProfilePage() {
     <Layout>
       <Card noPadding={true}>
         <div className="relative overflow-hidden rounded-md">
-          <div className="h-36 overflow-hidden flex justify-center items-center ">
-            <img src={profile?.cover} alt="" />
-          </div>
+          <Cover url={profile?.cover} />
           <div className="absolute top-24 left-4">
             {profile && <Avatar size={'lg'} url={profile?.avatar} />}
           </div>
