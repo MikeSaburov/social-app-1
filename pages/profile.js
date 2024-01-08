@@ -65,7 +65,7 @@ export default function ProfilePage() {
             <div className="ml-24 md:ml-40">
               <h1 className="text-xl md:text-3xl font-bold">{profile?.name}</h1>
               <div className="text-gray-500 leading-4 text-sm md:text-xl ">
-                Южно-Сахалинск, Россия
+                {profile?.place}
               </div>
             </div>
             <div className="mt-5 md:mt-10 flex gap-0">
