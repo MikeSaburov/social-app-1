@@ -34,25 +34,27 @@ export const PostFormCard = ({ onPost }) => {
 
   // https://cogsotxodehoogxvpmey.supabase.co/storage/v1/object/public/photos/1704538352622121410.jpg
 
-  function addPhotos(e) {
+  async function addPhotos(e) {
     const files = e.target.files;
-    setIsUploading(true);
-    for (const file of files) {
-      const newName = Date.now() + file.name;
-      supabase.storage
-        .from('photos')
-        .upload(newName, file)
-        .then((res) => {
-          if (res.data) {
-            const url =
-              process.env.NEXT_PUBLIC_SUPABASE_URL +
-              '/storage/v1/object/public/photos/' +
-              res.data.path;
+    if (files.length > 0) {
+      setIsUploading(true);
+      for (const file of files) {
+        const newName = Date.now() + file.name;
+        const result = await supabase.storage
+          .from('photos')
+          .upload(newName, file);
+        if (result.data) {
+          const url =
+            process.env.NEXT_PUBLIC_SUPABASE_URL +
+            '/storage/v1/object/public/photos/' +
+            result.data.path;
 
-            setUploads((prevUploads) => [...prevUploads, url]);
-            setIsUploading(false);
-          }
-        });
+          setUploads((prevUploads) => [...prevUploads, url]);
+        } else {
+          console.log(result);
+        }
+      }
+      setIsUploading(false);
     }
   }
 
