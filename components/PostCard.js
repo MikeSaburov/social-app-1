@@ -10,7 +10,12 @@ import Link from 'next/link';
 import ReactTimeAgo from 'react-time-ago';
 import { UserContext } from '@/context/UserContext';
 
-export const PostCard = ({ content, created_at, profiles: authorProfile }) => {
+export const PostCard = ({
+  content,
+  created_at,
+  photos,
+  profiles: authorProfile,
+}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { profile: myProfile } = useContext(UserContext);
@@ -197,12 +202,12 @@ export const PostCard = ({ content, created_at, profiles: authorProfile }) => {
       </div>
       <div>
         <p className="my-3 text-sm">{content}</p>
-        <div>
-          <img
-            className="rounded-md overflow-hidden "
-            src="https://images.unsplash.com/photo-1506978520653-bb3accebb1a3?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          />
-        </div>
+        {photos?.length > 0 &&
+          photos.map((photo) => (
+            <div>
+              <img className="rounded-md overflow-hidden " src={photos} />
+            </div>
+          ))}
       </div>
       <div className="mt-4 flex gap-6 text-xs">
         <button className="flex gap-1 items-center">
