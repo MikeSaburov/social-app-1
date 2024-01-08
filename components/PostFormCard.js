@@ -32,8 +32,6 @@ export const PostFormCard = ({ onPost }) => {
       });
   }
 
-  // https://cogsotxodehoogxvpmey.supabase.co/storage/v1/object/public/photos/1704538352622121410.jpg
-
   async function addPhotos(e) {
     const files = e.target.files;
     if (files.length > 0) {
