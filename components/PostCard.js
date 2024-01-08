@@ -41,7 +41,7 @@ export const PostCard = ({
         </div>
         <div className="grow">
           <p>
-            <Link href={'/profile'}>
+            <Link href={'/profile/' + authorProfile.id}>
               <span className="font-semibold hover:underline 5 cursor-pointer mr-1">
                 {authorProfile.name}
               </span>
