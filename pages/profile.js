@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function ProfilePage() {
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(null);
 
   const supabase = useSupabaseClient();
 
@@ -58,12 +58,12 @@ export default function ProfilePage() {
             />
           </div>
           <div className="absolute top-24 left-4">
-            <Avatar size={'lg'} url={profile.avatar} />
+            <Avatar size={'lg'} url={profile?.avatar} />
           </div>
 
           <div className="py-1 px-5 mb:p-4 pb-0">
             <div className="ml-24 md:ml-40">
-              <h1 className="text-xl md:text-3xl font-bold">{profile.name}</h1>
+              <h1 className="text-xl md:text-3xl font-bold">{profile?.name}</h1>
               <div className="text-gray-500 leading-4 text-sm md:text-xl ">
                 Южно-Сахалинск, Россия
               </div>
