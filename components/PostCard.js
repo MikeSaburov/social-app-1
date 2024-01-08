@@ -202,13 +202,17 @@ export const PostCard = ({
       </div>
       <div>
         <p className="my-3 text-sm">{content}</p>
-        {photos?.length > 0 &&
-          photos.map((photo) => (
-            <div>
-              <img className="rounded-md overflow-hidden " src={photos} />
-            </div>
-          ))}
+        {photos?.length > 0 && (
+          <div className="flex gap-2">
+            {photos.map((photo) => (
+              <div className="">
+                <img className="rounded-md overflow-hidden " src={photo} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
+
       <div className="mt-4 flex gap-6 text-xs">
         <button className="flex gap-1 items-center">
           <svg
