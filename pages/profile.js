@@ -5,9 +5,37 @@ import Link from 'next/link';
 import { PostCard } from '@/components/PostCard';
 import { useRouter } from 'next/router';
 import { FriendsInfo } from '@/components/FriendsInfo';
+import { useEffect, useState } from 'react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function ProfilePage() {
+  const [profile, setProfile] = useState({});
+
+  const supabase = useSupabaseClient();
+
   const router = useRouter();
+  const userId = router.query.id;
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    supabase
+      .from('profiles')
+      .select()
+      .eq('id', userId)
+      .then((res) => {
+        if (res.error) {
+          throw res.error;
+        }
+        if (res.data) {
+          setProfile(res.data[0]);
+        }
+      });
+  }, [userId]);
+
+  console.log(profile);
+
   const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
   const isAbout = pathname.includes('about');
@@ -30,12 +58,12 @@ export default function ProfilePage() {
             />
           </div>
           <div className="absolute top-24 left-4">
-            <Avatar size={'lg'} />
+            <Avatar size={'lg'} url={profile.avatar} />
           </div>
 
           <div className="py-1 px-5 mb:p-4 pb-0">
             <div className="ml-24 md:ml-40">
-              <h1 className="text-xl md:text-3xl font-bold">Данила Мастер</h1>
+              <h1 className="text-xl md:text-3xl font-bold">{profile.name}</h1>
               <div className="text-gray-500 leading-4 text-sm md:text-xl ">
                 Южно-Сахалинск, Россия
               </div>
