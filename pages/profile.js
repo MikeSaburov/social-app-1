@@ -6,7 +6,7 @@ import { PostCard } from '@/components/PostCard';
 import { useRouter } from 'next/router';
 import { FriendsInfo } from '@/components/FriendsInfo';
 import { useEffect, useState } from 'react';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Cover from '@/components/Cover';
 
 export default function ProfilePage() {
@@ -15,6 +15,7 @@ export default function ProfilePage() {
   const supabase = useSupabaseClient();
 
   const router = useRouter();
+  const session = useSession();
   const userId = router.query.id;
 
   useEffect(() => {
@@ -46,11 +47,13 @@ export default function ProfilePage() {
   const activeTabClasses =
     'flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold';
 
+  const isMyUser = userId === session?.user?.id;
+
   return (
     <Layout>
       <Card noPadding={true}>
         <div className="relative overflow-hidden rounded-md">
-          <Cover url={profile?.cover} />
+          <Cover url={profile?.cover} editable={isMyUser} />
           <div className="absolute top-24 left-4">
             {profile && <Avatar size={'lg'} url={profile?.avatar} />}
           </div>
