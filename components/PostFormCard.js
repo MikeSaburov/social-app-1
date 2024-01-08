@@ -21,10 +21,12 @@ export const PostFormCard = ({ onPost }) => {
       .insert({
         author: session.user.id,
         content,
+        photos: uploads,
       })
       .then((res) => {
         if (!res.error) {
           setContent('');
+          setUploads([]);
           if (onPost) {
             onPost();
           }
