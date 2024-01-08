@@ -34,8 +34,6 @@ export default function ProfilePage() {
       });
   }, [userId]);
 
-  console.log(profile);
-
   const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
   const isAbout = pathname.includes('about');
