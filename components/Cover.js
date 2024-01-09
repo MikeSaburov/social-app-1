@@ -1,4 +1,21 @@
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+
 export default function Cover({ url, editable }) {
+  const supabase = useSupabaseClient();
+
+  async function updateCover(event) {
+    const file = event.target.files?.[0];
+    if (file) {
+      const newName = Date.now() + file.name;
+      const { data, error } = await supabase.storage
+        .from('covers')
+        .upload(newName, file);
+      if (error) throw error;
+      if (data) {
+      }
+    }
+  }
+
   return (
     <div className="h-36 overflow-hidden flex justify-center items-center relative">
       <div>
@@ -8,7 +25,7 @@ export default function Cover({ url, editable }) {
       {editable && (
         <div className="absolute right-0 bottom-0 m-2">
           <label className="bg-white rounded-md text-sm py-1 px-2 shadow-md shadow-black flex gap-1 items-center cursor-pointer">
-            <input type="file" className="hidden" />
+            <input type="file" className="hidden" onChange={updateCover} />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
