@@ -26,8 +26,10 @@ export default function Cover({ url, editable }) {
       </div>
 
       {isUploading && (
-        <div className="absolute">
-          <Preloader />
+        <div className="absolute bg-white inset-0 bg-opacity-80 flex items-center z-10">
+          <div className="inline-block mx-auto">
+            <Preloader />
+          </div>
         </div>
       )}
 
