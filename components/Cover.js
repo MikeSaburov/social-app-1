@@ -1,20 +1,42 @@
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 import Preloader from './Preloader';
 
-export default function Cover({ url, editable }) {
+export default function Cover({ url, editable, onChange }) {
   const supabase = useSupabaseClient();
-  const [isUploading, setIsUploading] = useState(true);
+  const session = useSession();
+  const [isUploading, setIsUploading] = useState(false);
+
+  //https://cogsotxodehoogxvpmey.supabase.co/storage/v1/object/public/covers/170479218219321E635A8-1801-4F3B-9CA5-A4E9899427BC.jpeg?t=2024-01-09T09%3A59%3A05.062Z
 
   async function updateCover(event) {
     const file = event.target.files?.[0];
     if (file) {
+      setIsUploading(true);
       const newName = Date.now() + file.name;
       const { data, error } = await supabase.storage
         .from('covers')
         .upload(newName, file);
+
+      setIsUploading(false);
       if (error) throw error;
       if (data) {
+        const url =
+          process.env.NEXT_PUBLIC_SUPABASE_URL +
+          '/storage/v1/object/public/covers/' +
+          data.path;
+
+        supabase
+          .from('profiles')
+          .update({
+            cover: url,
+          })
+          .eq('id', session.user.id)
+          .then((res) => {
+            if (!res.error && onChange) {
+              onChange();
+            }
+          });
       }
     }
   }

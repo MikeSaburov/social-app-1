@@ -22,6 +22,10 @@ export default function ProfilePage() {
     if (!userId) {
       return;
     }
+    fetchUser();
+  }, [userId]);
+
+  function fetchUser() {
     supabase
       .from('profiles')
       .select()
@@ -34,7 +38,7 @@ export default function ProfilePage() {
           setProfile(res.data[0]);
         }
       });
-  }, [userId]);
+  }
 
   const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
@@ -53,7 +57,11 @@ export default function ProfilePage() {
     <Layout>
       <Card noPadding={true}>
         <div className="relative overflow-hidden rounded-md">
-          <Cover url={profile?.cover} editable={isMyUser} />
+          <Cover
+            url={profile?.cover}
+            editable={isMyUser}
+            onChange={fetchUser}
+          />
           <div className="absolute top-24 left-4 z-20">
             {profile && <Avatar size={'lg'} url={profile?.avatar} />}
           </div>
