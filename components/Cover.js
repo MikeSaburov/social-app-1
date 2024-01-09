@@ -1,7 +1,10 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useState } from 'react';
+import Preloader from './Preloader';
 
 export default function Cover({ url, editable }) {
   const supabase = useSupabaseClient();
+  const [isUploading, setIsUploading] = useState(true);
 
   async function updateCover(event) {
     const file = event.target.files?.[0];
@@ -21,6 +24,12 @@ export default function Cover({ url, editable }) {
       <div>
         <img src={url} alt="" />
       </div>
+
+      {isUploading && (
+        <div className="absolute">
+          <Preloader />
+        </div>
+      )}
 
       {editable && (
         <div className="absolute right-0 bottom-0 m-2">
