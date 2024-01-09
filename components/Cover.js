@@ -7,7 +7,8 @@ export default function Cover({ url, editable }) {
 
       {editable && (
         <div className="absolute right-0 bottom-0 m-2">
-          <button className="bg-white rounded-md text-sm py-1 px-2 shadow-md shadow-black flex gap-1 items-center cursor-pointer">
+          <label className="bg-white rounded-md text-sm py-1 px-2 shadow-md shadow-black flex gap-1 items-center cursor-pointer">
+            <input type="file" className="hidden" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -23,7 +24,7 @@ export default function Cover({ url, editable }) {
               />
             </svg>
             Изменить обложку
-          </button>
+          </label>
         </div>
       )}
     </div>
