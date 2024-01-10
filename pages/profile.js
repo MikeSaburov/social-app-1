@@ -63,7 +63,14 @@ export default function ProfilePage() {
             onChange={fetchUser}
           />
           <div className="absolute top-24 left-4 z-20">
-            {profile && <Avatar size={'lg'} url={profile?.avatar} />}
+            {profile && (
+              <Avatar
+                size={'lg'}
+                url={profile?.avatar}
+                editable={isMyUser}
+                onChange={fetchUser}
+              />
+            )}
           </div>
 
           <div className="py-1 px-5 mb:p-4 pb-0">
