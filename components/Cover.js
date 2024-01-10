@@ -11,6 +11,7 @@ export default function Cover({ url, editable, onChange }) {
   async function updateCover(event) {
     const file = event.target.files?.[0];
     if (file) {
+      setIsUploading(true);
       await uploadUserProfileImage(
         supabase,
         session.user.id,
@@ -18,6 +19,11 @@ export default function Cover({ url, editable, onChange }) {
         'covers',
         'cover'
       );
+
+      if (onChange) {
+        onChange();
+      }
+      setIsUploading(false);
     }
   }
 
