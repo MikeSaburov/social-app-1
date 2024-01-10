@@ -5,6 +5,11 @@ export const Avatar = ({ size, url, editable, onChange }) => {
     width = 'w-24 md:w-32';
     heigth = 'h-24 md:h-32';
   }
+
+  function handleAvatarChange(event) {
+    console.log(event);
+  }
+
   return (
     <div className={`${width} ${heigth} relative`}>
       <div className="rounded-full overflow-hidden">
@@ -12,7 +17,7 @@ export const Avatar = ({ size, url, editable, onChange }) => {
       </div>
       {editable && (
         <label className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer">
-          <input type="file" className="hidden" />
+          <input type="file" className="hidden" onChange={handleAvatarChange} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
