@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { uploadUserProfileImage } from '@/helpers/user';
 export const Avatar = ({ size, url, editable, onChange }) => {
   let width = 'w-12';
   let heigth = 'h-12';
@@ -6,8 +9,22 @@ export const Avatar = ({ size, url, editable, onChange }) => {
     heigth = 'h-24 md:h-32';
   }
 
-  function handleAvatarChange(event) {
-    console.log(event);
+  const [isUploading, setIsUploading] = useState(false);
+  const supabase = useSupabaseClient();
+  const session = useSession();
+
+  async function handleAvatarChange(event) {
+    const file = event.target.files?.[0];
+    if (file) {
+      await uploadUserProfileImage(
+        supabase,
+        session.user.id,
+        file,
+        'avatars',
+        'avatar'
+      );
+      if (onChange) onChange();
+    }
   }
 
   return (
