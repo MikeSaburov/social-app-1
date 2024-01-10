@@ -7,8 +7,6 @@ export default function Cover({ url, editable, onChange }) {
   const session = useSession();
   const [isUploading, setIsUploading] = useState(false);
 
-  //https://cogsotxodehoogxvpmey.supabase.co/storage/v1/object/public/covers/170479218219321E635A8-1801-4F3B-9CA5-A4E9899427BC.jpeg?t=2024-01-09T09%3A59%3A05.062Z
-
   async function updateCover(event) {
     const file = event.target.files?.[0];
     if (file) {
