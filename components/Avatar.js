@@ -11,7 +11,8 @@ export const Avatar = ({ size, url, editable, onChange }) => {
         <img src={url} alt="" className="w-full" />
       </div>
       {editable && (
-        <button className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer">
+        <label className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer">
+          <input type="file" className="hidden" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -31,7 +32,7 @@ export const Avatar = ({ size, url, editable, onChange }) => {
               d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z"
             />
           </svg>
-        </button>
+        </label>
       )}
     </div>
   );
