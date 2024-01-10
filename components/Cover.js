@@ -1,6 +1,7 @@
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
 import Preloader from './Preloader';
+import { uploadUserProfileImage } from '@/helpers/user';
 
 export default function Cover({ url, editable, onChange }) {
   const supabase = useSupabaseClient();
@@ -10,32 +11,13 @@ export default function Cover({ url, editable, onChange }) {
   async function updateCover(event) {
     const file = event.target.files?.[0];
     if (file) {
-      setIsUploading(true);
-      const newName = Date.now() + file.name;
-      const { data, error } = await supabase.storage
-        .from('covers')
-        .upload(newName, file);
-
-      setIsUploading(false);
-      if (error) throw error;
-      if (data) {
-        const url =
-          process.env.NEXT_PUBLIC_SUPABASE_URL +
-          '/storage/v1/object/public/covers/' +
-          data.path;
-
-        supabase
-          .from('profiles')
-          .update({
-            cover: url,
-          })
-          .eq('id', session.user.id)
-          .then((res) => {
-            if (!res.error && onChange) {
-              onChange();
-            }
-          });
-      }
+      await uploadUserProfileImage(
+        supabase,
+        session.user.id,
+        file,
+        'covers',
+        'cover'
+      );
     }
   }
 
