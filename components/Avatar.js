@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { uploadUserProfileImage } from '@/helpers/user';
+import Preloader from './Preloader';
 export const Avatar = ({ size, url, editable, onChange }) => {
   let width = 'w-12';
   let heigth = 'h-12';
@@ -16,6 +17,7 @@ export const Avatar = ({ size, url, editable, onChange }) => {
   async function handleAvatarChange(event) {
     const file = event.target.files?.[0];
     if (file) {
+      setIsUploading(true);
       await uploadUserProfileImage(
         supabase,
         session.user.id,
@@ -24,14 +26,20 @@ export const Avatar = ({ size, url, editable, onChange }) => {
         'avatar'
       );
       if (onChange) onChange();
+      setIsUploading(false);
     }
   }
 
   return (
-    <div className={`${width} ${heigth} relative`}>
+    <div className={`${width} ${heigth} relative `}>
       <div className="rounded-full overflow-hidden">
-        <img src={url} alt="" className="w-full" />
+        <img src={url} alt="" className={`w-full ${width} ${heigth}`} />
       </div>
+      {isUploading && (
+        <div className="absolute inset-0 flex items-center bg-white bg-opacity-50 rounded-full">
+          <Preloader />
+        </div>
+      )}
       {editable && (
         <label className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer">
           <input type="file" className="hidden" onChange={handleAvatarChange} />
