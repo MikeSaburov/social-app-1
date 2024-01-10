@@ -1,4 +1,4 @@
-export const Avatar = ({ size, url }) => {
+export const Avatar = ({ size, url, editable, onChange }) => {
   let width = 'w-12';
   let heigth = 'h-12';
   if (size === 'lg') {
@@ -6,8 +6,10 @@ export const Avatar = ({ size, url }) => {
     heigth = 'h-24 md:h-32';
   }
   return (
-    <div className={`${width} ${heigth} rounded-full overflow-hidden`}>
-      <img src={url} alt="" className="w-full" />
+    <div className={`${width} ${heigth} `}>
+      <div className="rounded-full overflow-hidden">
+        <img src={url} alt="" className="w-full" />
+      </div>
     </div>
   );
 };
