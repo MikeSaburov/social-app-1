@@ -13,6 +13,7 @@ export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [name, setName] = useState('');
+  const [place, setPlace] = useState('');
 
   const supabase = useSupabaseClient();
 
@@ -79,7 +80,7 @@ export default function ProfilePage() {
             <div className="ml-24 md:ml-40 flex justify-between gap-2 ">
               <div>
                 {editMode && (
-                  <div>
+                  <div className="mb-2">
                     <input
                       type="text"
                       placeholder={'Твое имя?'}
@@ -95,9 +96,22 @@ export default function ProfilePage() {
                   </h1>
                 )}
 
-                <div className="text-gray-500 leading-4 text-sm md:text-xl ">
-                  {profile?.place || 'Млечный Путь. Земля:)'}
-                </div>
+                {editMode && (
+                  <div>
+                    <input
+                      type="text"
+                      placeholder={'Откуда ты?'}
+                      value={place}
+                      onChange={(ev) => setPlace(ev.target.value)}
+                      className="w-full px-2 py-1 border rounded-md"
+                    />
+                  </div>
+                )}
+                {!editMode && (
+                  <div className="text-gray-500 leading-4 text-sm md:text-xl ">
+                    {profile?.place || 'Млечный Путь. Земля:)'}
+                  </div>
+                )}
               </div>
               <div>
                 {isMyUser && !editMode && (
