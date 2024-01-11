@@ -41,7 +41,7 @@ export const Avatar = ({ size, url, editable, onChange }) => {
         </div>
       )}
       {editable && (
-        <label className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer">
+        <label className="absolute bottom-0 right-0 shadow-md shadow-gray-500 p-1 bg-white rounded-full cursor-pointer  hover:bg-socialBlue hover:text-white hover:bg-opacity-90">
           <input type="file" className="hidden" onChange={handleAvatarChange} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
