@@ -85,7 +85,7 @@ export default function ProfilePage() {
                       placeholder={'Твое имя?'}
                       value={name}
                       onChange={(ev) => setName(ev.target.value)}
-                      className="w-full px-2 py-1 "
+                      className="w-full px-2 py-1 border rounded-md"
                     />
                   </div>
                 )}
