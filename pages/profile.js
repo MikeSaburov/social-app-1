@@ -84,7 +84,7 @@ export default function ProfilePage() {
                 </div>
               </div>
               <div>
-                <button className="rounded-full border shadow-md shadow-gray-300 text-sm px-2 py-1 ">
+                <button className="rounded-full border shadow-sm shadow-gray-300 text-sm px-2 py-1 hover:bg-socialBlue hover:text-white hover:bg-opacity-90">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
