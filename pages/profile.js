@@ -52,7 +52,9 @@ export default function ProfilePage() {
       })
       .eq('id', session.user.id)
       .then((res) => {
-        console.log(res);
+        if (res.error) {
+          setProfile((prev) => ({ ...prev, name, place }));
+        }
         setEditMode(false);
       });
   }
