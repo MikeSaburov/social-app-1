@@ -116,7 +116,11 @@ export default function ProfilePage() {
               <div>
                 {isMyUser && !editMode && (
                   <button
-                    onClick={() => setEditMode(true)}
+                    onClick={() => {
+                      setEditMode(true);
+                      setName(profile.name);
+                      setPlace(profile.place);
+                    }}
                     className="rounded-full border shadow-sm shadow-gray-300 text-sm px-2 py-1 hover:bg-socialBlue hover:text-white hover:bg-opacity-90"
                   >
                     <svg
