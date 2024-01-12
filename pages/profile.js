@@ -52,7 +52,7 @@ export default function ProfilePage() {
       })
       .eq('id', session.user.id)
       .then((res) => {
-        if (res.error) {
+        if (!res.error) {
           setProfile((prev) => ({ ...prev, name, place }));
         }
         setEditMode(false);
