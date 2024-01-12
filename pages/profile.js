@@ -43,6 +43,20 @@ export default function ProfilePage() {
       });
   }
 
+  function saveProfile() {
+    supabase
+      .from('profiles')
+      .update({
+        name,
+        place,
+      })
+      .eq('id', session.user.id)
+      .then((res) => {
+        console.log(res);
+        setEditMode(false);
+      });
+  }
+
   const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
   const isAbout = pathname.includes('about');
@@ -141,7 +155,7 @@ export default function ProfilePage() {
                 )}
                 {isMyUser && editMode && (
                   <button
-                    onClick={() => setEditMode(true)}
+                    onClick={saveProfile}
                     className="rounded-md border shadow-sm shadow-gray-300 text-sm px-2 py-1  hover:bg-socialBlue hover:bg-opacity-80 hover:text-white "
                   >
                     Сохранить
