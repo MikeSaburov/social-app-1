@@ -167,7 +167,7 @@ export default function ProfilePage() {
 
                   {isMyUser && editMode && (
                     <button
-                      onClick={saveProfile}
+                      onClick={() => setEditMode(false)}
                       className="rounded-md border shadow-sm shadow-gray-300 text-sm px-2 py-1  hover:bg-socialBlue hover:bg-opacity-80 hover:text-white "
                     >
                       Отмена
