@@ -1,4 +1,18 @@
+import { useRouter } from 'next/router';
+
 export default function ProfileTabs() {
+  const router = useRouter();
+  const { asPath: pathname } = router;
+  const isPosts = pathname.includes('posts') || pathname === '/profile';
+  const isAbout = pathname.includes('about');
+  const isFriends = pathname.includes('friends');
+  const isPhotos = pathname.includes('photos');
+
+  const tabClasses =
+    'flex gap-1 px-2 py-1 items-center border-b-4 border-b-white';
+  const activeTabClasses =
+    'flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold';
+
   return (
     <div className="mt-5 md:mt-10 flex gap-0">
       <Link

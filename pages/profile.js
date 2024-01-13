@@ -8,6 +8,7 @@ import { FriendsInfo } from '@/components/FriendsInfo';
 import { useEffect, useState } from 'react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Cover from '@/components/Cover';
+import ProfileTabs from '@/components/ProfileTabs';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -58,17 +59,6 @@ export default function ProfilePage() {
         setEditMode(false);
       });
   }
-
-  const { asPath: pathname } = router;
-  const isPosts = pathname.includes('posts') || pathname === '/profile';
-  const isAbout = pathname.includes('about');
-  const isFriends = pathname.includes('friends');
-  const isPhotos = pathname.includes('photos');
-
-  const tabClasses =
-    'flex gap-1 px-2 py-1 items-center border-b-4 border-b-white';
-  const activeTabClasses =
-    'flex gap-1 px-2 py-1 items-center border-socialBlue border-b-4 text-socialBlue font-bold';
 
   const isMyUser = userId === session?.user?.id;
 
@@ -176,6 +166,7 @@ export default function ProfilePage() {
                 </div>
               </div>
             </div>
+            <ProfileTabs />
           </div>
         </div>
       </Card>
