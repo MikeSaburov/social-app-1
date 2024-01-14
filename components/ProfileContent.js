@@ -12,9 +12,12 @@ export default function ProfileContent({ activeTab, userId }) {
     if (!userId) {
       return;
     }
-    const posts = userPosts(userId);
-    const profile = userProfile(userId);
   }, [userId]);
+
+  async function loadPosts() {
+    const posts = await userPosts(userId);
+    const profile = await userProfile(userId);
+  }
 
   async function userPosts(userId) {
     const { data } = await supabase
