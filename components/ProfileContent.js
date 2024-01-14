@@ -6,18 +6,24 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function ProfileContent({ activeTab, userId }) {
   const [posts, setPosts] = useState([]);
+  const [profile, setProfile] = useState(null);
   const supabase = useSupabaseClient();
 
   useEffect(() => {
     if (!userId) {
       return;
     }
+
+    if (activeTab === 'posts') {
+      loadPosts().then(() => {});
+    }
   }, [userId]);
 
   async function loadPosts() {
     const posts = await userPosts(userId);
     const profile = await userProfile(userId);
-    return { posts, profile };
+    setPosts(posts);
+    setProfile(profile);
   }
 
   async function userPosts(userId) {
@@ -33,7 +39,7 @@ export default function ProfileContent({ activeTab, userId }) {
       .from('profiles')
       .select('id, avatar, created_at, name')
       .eq('id', userId);
-    console.log(data);
+
     return data[0];
   }
 
