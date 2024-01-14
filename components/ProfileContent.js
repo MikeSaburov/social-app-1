@@ -40,8 +40,6 @@ export default function ProfileContent({ activeTab, userId }) {
     return data?.[0];
   }
 
-  console.log(posts);
-
   return (
     <>
       {activeTab === 'posts' && (
