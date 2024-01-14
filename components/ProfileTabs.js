@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export default function ProfileTabs() {
+export default function ProfileTabs({ userId }) {
   const router = useRouter();
   const { asPath: pathname } = router;
   const isPosts = pathname.includes('posts') || pathname === '/profile';
@@ -17,7 +17,7 @@ export default function ProfileTabs() {
   return (
     <div className="mt-5 md:mt-10 flex gap-0">
       <Link
-        href={'/profile/posts'}
+        href={`/profile/${userId}/posts`}
         className={isPosts ? activeTabClasses : tabClasses}
       >
         <svg
@@ -37,7 +37,7 @@ export default function ProfileTabs() {
         <span className="hidden sm:block"> Посты</span>
       </Link>
       <Link
-        href={'/profile/about'}
+        href={`/profile/${userId}/about`}
         className={isAbout ? activeTabClasses : tabClasses}
       >
         <svg
@@ -57,7 +57,7 @@ export default function ProfileTabs() {
         <span className="hidden sm:block">Обо мне</span>
       </Link>
       <Link
-        href={'/profile/friends'}
+        href={`/profile/${userId}/friends`}
         className={isFriends ? activeTabClasses : tabClasses}
       >
         <svg
@@ -77,7 +77,7 @@ export default function ProfileTabs() {
         <span className="hidden sm:block"> Друзья</span>
       </Link>
       <Link
-        href={'/profile/photos'}
+        href={`/profile/${userId}/photo`}
         className={isPhotos ? activeTabClasses : tabClasses}
       >
         <svg

@@ -166,7 +166,7 @@ export default function ProfilePage() {
                 </div>
               </div>
             </div>
-            <ProfileTabs />
+            <ProfileTabs userId={profile?.id} />
           </div>
         </div>
       </Card>
