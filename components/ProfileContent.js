@@ -17,6 +17,7 @@ export default function ProfileContent({ activeTab, userId }) {
   async function loadPosts() {
     const posts = await userPosts(userId);
     const profile = await userProfile(userId);
+    return { posts, profile };
   }
 
   async function userPosts(userId) {
