@@ -19,6 +19,7 @@ export default function ProfilePage() {
   const supabase = useSupabaseClient();
 
   const router = useRouter();
+  const tab = router?.query?.tab?.[0] || 'posts';
   const session = useSession();
   const userId = router.query.id;
 
