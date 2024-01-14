@@ -172,7 +172,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </Card>
-      <ProfileContent activeTab={tab} />
+      <ProfileContent activeTab={tab} userId={userId} />
     </Layout>
   );
 }

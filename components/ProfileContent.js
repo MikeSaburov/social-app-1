@@ -1,8 +1,27 @@
 import PostCard from './PostCard';
 import Card from './Card';
 import { FriendsInfo } from './FriendsInfo';
+import { useEffect, useState } from 'react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
-export default function ProfileContent({ activeTab }) {
+export default function ProfileContent({ activeTab, userId }) {
+  const [posts, setPosts] = useState([]);
+  const supabase = useSupabaseClient();
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+
+    supabase
+      .from('posts')
+      .select('id, content, created_at, profiles(id,name,avatar)')
+      .eq('profiles.id', userId)
+      .then((res) => {
+        console.log(res);
+      });
+  }, [userId]);
+
   return (
     <>
       {activeTab === 'posts' && (
