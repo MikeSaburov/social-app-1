@@ -1,14 +1,6 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export default function ProfileTabs({ userId }) {
-  const router = useRouter();
-  const { asPath: pathname } = router;
-  const isPosts = pathname.includes('posts') || pathname === '/profile';
-  const isAbout = pathname.includes('about');
-  const isFriends = pathname.includes('friends');
-  const isPhotos = pathname.includes('photos');
-
+export default function ProfileTabs({ userId, active }) {
   const tabClasses =
     'flex gap-1 px-2 py-1 items-center border-b-4 border-b-white';
   const activeTabClasses =
@@ -18,7 +10,7 @@ export default function ProfileTabs({ userId }) {
     <div className="mt-5 md:mt-10 flex gap-0">
       <Link
         href={`/profile/${userId}/posts`}
-        className={isPosts ? activeTabClasses : tabClasses}
+        className={active === 'posts' ? activeTabClasses : tabClasses}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +30,7 @@ export default function ProfileTabs({ userId }) {
       </Link>
       <Link
         href={`/profile/${userId}/about`}
-        className={isAbout ? activeTabClasses : tabClasses}
+        className={active === 'about' ? activeTabClasses : tabClasses}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +50,7 @@ export default function ProfileTabs({ userId }) {
       </Link>
       <Link
         href={`/profile/${userId}/friends`}
-        className={isFriends ? activeTabClasses : tabClasses}
+        className={active === 'friends' ? activeTabClasses : tabClasses}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +70,7 @@ export default function ProfileTabs({ userId }) {
       </Link>
       <Link
         href={`/profile/${userId}/photo`}
-        className={isPhotos ? activeTabClasses : tabClasses}
+        className={active === 'photo' ? activeTabClasses : tabClasses}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
