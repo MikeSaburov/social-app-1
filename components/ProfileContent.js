@@ -12,7 +12,8 @@ export default function ProfileContent({ activeTab, userId }) {
     if (!userId) {
       return;
     }
-    userPosts();
+    const posts = userPosts(userId);
+    const profile = userProfile(userId);
   }, [userId]);
 
   async function userPosts(userId) {
@@ -20,6 +21,16 @@ export default function ProfileContent({ activeTab, userId }) {
       .from('posts')
       .select('id, content, created_at, author')
       .eq('author', userId);
+    return data;
+  }
+
+  async function userProfile(userId) {
+    const { data } = await supabase
+      .from('profiles')
+      .select('id, avatar, created_at, name')
+      .eq('id', userId);
+    console.log(data);
+    return data[0];
   }
 
   return (
