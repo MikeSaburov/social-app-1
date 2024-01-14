@@ -2,16 +2,16 @@ import PostCard from './PostCard';
 import Card from './Card';
 import { FriendsInfo } from './FriendsInfo';
 
-export default function ProfileContent() {
+export default function ProfileContent({ activeTab }) {
   return (
     <>
-      {isPosts && (
+      {activeTab === 'posts' && (
         <div>
           <PostCard />
         </div>
       )}
 
-      {isAbout && (
+      {activeTab === 'about' && (
         <div>
           <Card>
             <h2 className="text-2xl mb-2 font-medium">Это страница обо мне</h2>
@@ -35,7 +35,7 @@ export default function ProfileContent() {
           </Card>
         </div>
       )}
-      {isFriends && (
+      {activeTab === 'friends' && (
         <div>
           <Card>
             <div>
@@ -51,7 +51,7 @@ export default function ProfileContent() {
           </Card>
         </div>
       )}
-      {isPhotos && (
+      {activeTab === 'photos' && (
         <div>
           <Card>
             <div className="grid md:grid-cols-2 gap-4">

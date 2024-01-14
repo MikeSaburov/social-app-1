@@ -69,8 +69,8 @@ export default function ProfileTabs({ userId, active }) {
         <span className="hidden sm:block"> Друзья</span>
       </Link>
       <Link
-        href={`/profile/${userId}/photo`}
-        className={active === 'photo' ? activeTabClasses : tabClasses}
+        href={`/profile/${userId}/photos`}
+        className={active === 'photos' ? activeTabClasses : tabClasses}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
