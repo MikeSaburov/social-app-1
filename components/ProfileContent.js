@@ -7,7 +7,8 @@ export default function ProfileContent({ activeTab }) {
     <>
       {activeTab === 'posts' && (
         <div>
-          <PostCard />
+          posts
+          {/* <PostCard /> */}
         </div>
       )}
 

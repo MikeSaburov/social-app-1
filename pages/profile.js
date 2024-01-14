@@ -172,7 +172,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </Card>
-      <ProfileContent />
+      <ProfileContent activeTab={tab} />
     </Layout>
   );
 }
