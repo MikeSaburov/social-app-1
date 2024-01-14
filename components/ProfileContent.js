@@ -12,15 +12,15 @@ export default function ProfileContent({ activeTab, userId }) {
     if (!userId) {
       return;
     }
-
-    supabase
-      .from('posts')
-      .select('id, content, created_at, profiles(id,name,avatar)')
-      .eq('profiles.id', userId)
-      .then((res) => {
-        console.log(res);
-      });
+    userPosts();
   }, [userId]);
+
+  async function userPosts(userId) {
+    const { data } = await supabase
+      .from('posts')
+      .select('id, content, created_at, author')
+      .eq('author', userId);
+  }
 
   return (
     <>
