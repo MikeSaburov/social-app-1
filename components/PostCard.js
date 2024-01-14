@@ -10,12 +10,13 @@ import Link from 'next/link';
 import ReactTimeAgo from 'react-time-ago';
 import { UserContext } from '@/context/UserContext';
 
-export const PostCard = ({
+export default function PostCard({
+  id,
   content,
   created_at,
   photos,
   profiles: authorProfile,
-}) => {
+}) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { profile: myProfile } = useContext(UserContext);
@@ -297,4 +298,4 @@ export const PostCard = ({
       </div>
     </Card>
   );
-};
+}
