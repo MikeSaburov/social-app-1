@@ -1,6 +1,6 @@
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Layout from '../components/Layout';
-import { PostCard } from '../components/PostCard';
+import PostCard from '../components/PostCard';
 import { PostFormCard } from '../components/PostFormCard';
 import LoginPage from './login';
 import { useEffect, useState } from 'react';
