@@ -238,7 +238,7 @@ export default function PostCard({
         {photos?.length > 0 && (
           <div className="flex gap-2">
             {photos.map((photo) => (
-              <div className="">
+              <div key={photo} className="">
                 <img className="rounded-md overflow-hidden " src={photo} />
               </div>
             ))}
