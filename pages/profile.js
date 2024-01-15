@@ -10,7 +10,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Cover from '@/components/Cover';
 import ProfileTabs from '@/components/ProfileTabs';
 import ProfileContent from '@/components/ProfileContent';
-import { UserContext } from '@/context/UserContext';
+import { UserContextProvider } from '@/context/UserContext';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -67,7 +67,7 @@ export default function ProfilePage() {
 
   return (
     <Layout>
-      <UserContext.Provider value={{}}>
+      <UserContextProvider value={{}}>
         <Card noPadding={true}>
           <div className="relative overflow-hidden rounded-md">
             <Cover
@@ -175,7 +175,7 @@ export default function ProfilePage() {
           </div>
         </Card>
         <ProfileContent activeTab={tab} userId={userId} />
-      </UserContext.Provider>
+      </UserContextProvider>
     </Layout>
   );
 }
