@@ -30,7 +30,7 @@ export default function PostCard({
     setDropdownOpen(false);
   }
 
-  function likeThisPost(id) {}
+  function likeThisPost() {}
 
   return (
     <Card>
