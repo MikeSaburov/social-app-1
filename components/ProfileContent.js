@@ -122,8 +122,6 @@ export default function ProfileContent({ activeTab, userId }) {
                 />
               </div>
             </div>
-
-            {/* <h2 className="text-2xl mb-2 font-medium">Мои фотографии</h2> */}
           </Card>
         </div>
       )}
