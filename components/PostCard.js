@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import ReactTimeAgo from 'react-time-ago';
 import { UserContext } from '@/context/UserContext';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function PostCard({
   id,
@@ -20,6 +21,8 @@ export default function PostCard({
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { profile: myProfile } = useContext(UserContext);
+
+  const supabase = useSupabaseClient();
 
   function openDropdown() {
     setDropdownOpen(!dropdownOpen);
