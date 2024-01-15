@@ -1,10 +1,7 @@
 import Card from '../components/Card';
 import Layout from '../components/Layout';
 import { Avatar } from '../components/Avatar';
-import Link from 'next/link';
-import { PostCard } from '@/components/PostCard';
 import { useRouter } from 'next/router';
-import { FriendsInfo } from '@/components/FriendsInfo';
 import { useEffect, useState } from 'react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Cover from '@/components/Cover';
