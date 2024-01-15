@@ -67,7 +67,7 @@ export default function ProfilePage() {
 
   return (
     <Layout>
-      {/* <UserContextProvider value={{}}> */}
+
       <Card noPadding={true}>
         <div className="relative overflow-hidden rounded-md">
           <Cover
@@ -175,7 +175,7 @@ export default function ProfilePage() {
         </div>
       </Card>
       <ProfileContent activeTab={tab} userId={userId} />
-      {/* </UserContextProvider> */}
+
     </Layout>
   );
 }
