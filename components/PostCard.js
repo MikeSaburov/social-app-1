@@ -75,6 +75,8 @@ export default function PostCard({
       });
   }
 
+  function postComment() {}
+
   return (
     <Card>
       <div className="flex gap-3">
@@ -318,12 +320,15 @@ export default function PostCard({
         </div>
         <div className="border grow rounded-full md:relative">
           <div className="flex items-center">
-            <textarea
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-              className="px-3 py-2.5 block  h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden "
-              placeholder="Добавить комментарий..."
-            ></textarea>
+            <form onSubmit={postComment}>
+              <textarea
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                className="px-3 py-2.5 block  h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden "
+                placeholder="Добавить комментарий..."
+              ></textarea>
+            </form>
+
             <button className=" absolute  md:top-3 md:right-3 right-12  text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
