@@ -75,7 +75,18 @@ export default function PostCard({
       });
   }
 
-  function postComment() {}
+  function postComment() {
+    supabase
+      .from('posts')
+      .insert({
+        content: commentText,
+        author: myProfile.id,
+        parent: id,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  }
 
   return (
     <Card>
@@ -320,13 +331,13 @@ export default function PostCard({
         </div>
         <div className="border grow rounded-full md:relative">
           <div className="flex items-center">
-            <form onSubmit={postComment}>
-              <textarea
+            <form onSubmit={postComment} className="w-full">
+              <input
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
-                className="px-3 py-2.5 block  h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden "
+                className="px-3 py-2.5 block w-full h-12  text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden "
                 placeholder="Добавить комментарий..."
-              ></textarea>
+              ></input>
             </form>
 
             <button className=" absolute  md:top-3 md:right-3 right-12  text-gray-400">
