@@ -75,7 +75,8 @@ export default function PostCard({
       });
   }
 
-  function postComment() {
+  function postComment(ev) {
+    ev.preventDefault();
     supabase
       .from('posts')
       .insert({
