@@ -52,6 +52,14 @@ export default function PostCard({
 
   function toggleLike() {
     if (isLikedByMe) {
+      supabase
+        .from('likes')
+        .delete()
+        .eq('post_id', id)
+        .eq('user_id', myProfile.id)
+        .then((res) => {
+          fetchLikes();
+        });
       return;
     }
 
