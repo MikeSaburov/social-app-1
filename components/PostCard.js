@@ -50,7 +50,7 @@ export default function PostCard({
 
   const isLikedByMe = !!likes.find((like) => like.user_id === myProfile.id);
 
-  function likeThisPost() {
+  function toggleLike() {
     if (isLikedByMe) {
       return;
     }
@@ -251,7 +251,7 @@ export default function PostCard({
       </div>
 
       <div className="mt-4 flex gap-6 text-xs">
-        <button className="flex gap-1 items-center" onClick={likeThisPost}>
+        <button className="flex gap-1 items-center" onClick={toggleLike}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
