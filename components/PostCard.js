@@ -20,6 +20,7 @@ export default function PostCard({
 }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [likes, setLikes] = useState([]);
+  const [commentText, setCommentText] = useState('');
 
   const { profile: myProfile } = useContext(UserContext);
 
@@ -318,6 +319,8 @@ export default function PostCard({
         <div className="border grow rounded-full md:relative">
           <div className="flex items-center">
             <textarea
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
               className="px-3 py-2.5 block  h-12 w-full text-sm text-gray-900 rounded-full focus:border focus:ring-blue-500 focus:border-blue-500 outline-none overflow-hidden "
               placeholder="Добавить комментарий..."
             ></textarea>
