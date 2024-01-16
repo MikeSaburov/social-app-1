@@ -26,6 +26,10 @@ export default function PostCard({
   const supabase = useSupabaseClient();
 
   useEffect(() => {
+    fetchLikes();
+  }, []);
+
+  function fetchLikes() {
     supabase
       .from('likes')
       .select()
@@ -33,7 +37,7 @@ export default function PostCard({
       .then((res) => {
         setLikes(res.data);
       });
-  }, []);
+  }
 
   function openDropdown() {
     setDropdownOpen(!dropdownOpen);
@@ -58,7 +62,7 @@ export default function PostCard({
         user_id: myProfile.id,
       })
       .then((res) => {
-        console.log(res);
+        fetchLikes();
       });
   }
 
