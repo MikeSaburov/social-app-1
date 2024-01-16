@@ -20,6 +20,7 @@ export default function PostCard({
 }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [likes, setLikes] = useState([]);
+  const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
 
   const { profile: myProfile } = useContext(UserContext);
@@ -28,6 +29,7 @@ export default function PostCard({
 
   useEffect(() => {
     fetchLikes();
+    fetchComments();
   }, []);
 
   function fetchLikes() {
@@ -37,6 +39,16 @@ export default function PostCard({
       .eq('post_id', id)
       .then((res) => {
         setLikes(res.data);
+      });
+  }
+
+  function fetchComments() {
+    supabase
+      .from('posts')
+      .select()
+      .eq('parent', id)
+      .then((res) => {
+        setComments(res.data);
       });
   }
 
@@ -360,6 +372,7 @@ export default function PostCard({
           </div>
         </div>
       </div>
+      <div>{comments.length}</div>
     </Card>
   );
 }
