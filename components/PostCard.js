@@ -97,7 +97,7 @@ export default function PostCard({
         parent: id,
       })
       .then((res) => {
-        console.log(res);
+        fetchComments();
       });
   }
 
@@ -382,7 +382,7 @@ export default function PostCard({
               <Avatar url={comment.profiles.avatar} />
               <div className="bg-gray-200 py-2 px-4 rounded-3xl">
                 <Link href={`/profile/${comment.profiles.id}`}>
-                  <span className="hover:underline">
+                  <span className="hover:underline font-semibold">
                     {comment.profiles.name}
                   </span>
                 </Link>
