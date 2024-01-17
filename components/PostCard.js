@@ -45,7 +45,7 @@ export default function PostCard({
   function fetchComments() {
     supabase
       .from('posts')
-      .select()
+      .select('*, profiles(*)')
       .eq('parent', id)
       .then((res) => {
         setComments(res.data);
@@ -375,7 +375,10 @@ export default function PostCard({
       <div>
         {comments.length &&
           comments.map((comment) => (
-            <div key={comment.created_at}>{comment.content}</div>
+            <div key={comment.created_at} className="">
+              <Avatar url={comment.profiles.avatar} />
+              {comment.content}
+            </div>
           ))}
       </div>
     </Card>
