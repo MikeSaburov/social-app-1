@@ -380,7 +380,11 @@ export default function PostCard({
               className="flex mt-2 gap-2 items-center"
             >
               <Avatar url={comment.profiles.avatar} />
-              <div className="bg-gray-300"> {comment.content}</div>
+              <div className="bg-gray-200 py-2 px-4 rounded-3xl">
+                {comment.profiles.name}
+                <br />
+                <p className=""> {comment.content}</p>
+              </div>
             </div>
           ))}
       </div>
