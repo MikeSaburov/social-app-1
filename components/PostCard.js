@@ -381,9 +381,15 @@ export default function PostCard({
             >
               <Avatar url={comment.profiles.avatar} />
               <div className="bg-gray-200 py-2 px-4 rounded-3xl">
-                {comment.profiles.name}
+                <Link
+                  href={`/profile/${comment.profiles.id}`}
+                  className="cursor-pointer"
+                >
+                  {comment.profiles.name}
+                </Link>
+
                 <br />
-                <p className=""> {comment.content}</p>
+                <p className="text-sm"> {comment.content}</p>
               </div>
             </div>
           ))}
