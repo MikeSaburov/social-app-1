@@ -375,9 +375,12 @@ export default function PostCard({
       <div>
         {comments.length &&
           comments.map((comment) => (
-            <div key={comment.created_at} className="">
+            <div
+              key={comment.created_at}
+              className="flex mt-2 gap-2 items-center"
+            >
               <Avatar url={comment.profiles.avatar} />
-              {comment.content}
+              <div className="bg-gray-300"> {comment.content}</div>
             </div>
           ))}
       </div>
