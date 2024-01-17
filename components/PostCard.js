@@ -98,6 +98,7 @@ export default function PostCard({
       })
       .then((res) => {
         fetchComments();
+        setCommentText('');
       });
   }
 
