@@ -372,7 +372,12 @@ export default function PostCard({
           </div>
         </div>
       </div>
-      <div>{comments.length}</div>
+      <div>
+        {comments.length &&
+          comments.map((comment) => (
+            <div key={comment.created_at}>{comment.content}</div>
+          ))}
+      </div>
     </Card>
   );
 }
