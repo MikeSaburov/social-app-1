@@ -382,13 +382,19 @@ export default function PostCard({
             >
               <Avatar url={comment.profiles.avatar} />
               <div className="bg-gray-200 py-2 px-4 rounded-3xl">
-                <Link href={`/profile/${comment.profiles.id}`}>
-                  <span className="hover:underline font-semibold">
-                    {comment.profiles.name}
+                <div className="flex items-center gap-2 justify-between">
+                  <Link href={`/profile/${comment.profiles.id}`}>
+                    <span className="hover:underline font-semibold">
+                      {comment.profiles.name}
+                    </span>
+                  </Link>
+                  <span className="text-xs text-gray-500">
+                    <ReactTimeAgo
+                      timeStyle={'twitter'}
+                      date={new Date(comment.created_at).getTime()}
+                    />
                   </span>
-                </Link>
-
-                <br />
+                </div>
                 <p className="text-sm"> {comment.content}</p>
               </div>
             </div>
