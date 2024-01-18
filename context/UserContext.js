@@ -17,7 +17,7 @@ export function UserContextProvider({ children }) {
       .select()
       .eq('id', session.user.id)
       .then((res) => {
-        setProfile(res.data[0]);
+        setProfile(res.data?.[0]);
       });
   }, [session?.user?.id]);
 
