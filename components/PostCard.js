@@ -63,7 +63,7 @@ export default function PostCard({
 
   function savePost() {
     supabase
-      .from('save_posts')
+      .from('saved_posts')
       .insert({
         user_id: myProfile.id,
         post_id: id,
