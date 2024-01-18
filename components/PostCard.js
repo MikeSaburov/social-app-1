@@ -61,7 +61,17 @@ export default function PostCard({
     setDropdownOpen(false);
   }
 
-  function savePost() {}
+  function savePost() {
+    supabase
+      .from('save_posts')
+      .insert({
+        user_id: myProfile.id,
+        post_id: id,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  }
 
   const isLikedByMe = !!likes.find((like) => like.user_id === myProfile.id);
 
@@ -382,7 +392,10 @@ export default function PostCard({
               key={comment.created_at}
               className="flex mt-2 gap-2 items-center"
             >
-              <Avatar url={comment.profiles.avatar} />
+              <div>
+                <Avatar url={comment.profiles.avatar} />
+              </div>
+
               <div className="bg-gray-200 py-2 px-4 rounded-3xl">
                 <div className="flex items-center gap-2 justify-between">
                   <Link href={`/profile/${comment.profiles.id}`}>

@@ -31,7 +31,7 @@ export const Avatar = ({ size, url, editable, onChange }) => {
   }
 
   return (
-    <div className={`${width} ${heigth} relative `}>
+    <div className={`${width} ${heigth} relative`}>
       <div className="rounded-full overflow-hidden">
         <img src={url} alt="" className={`w-full ${width} ${heigth}`} />
       </div>
