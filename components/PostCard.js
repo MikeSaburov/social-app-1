@@ -126,7 +126,7 @@ export default function PostCard({
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative z-40">
           <button className="text-gray-400" onClick={openDropdown}>
             {dropdownOpen ? (
               <div className="w-5 h-5 absolute top-0 right-1 animate-fade animate-once animate-duration-[1200ms]">
