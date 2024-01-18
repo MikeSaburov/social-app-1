@@ -14,10 +14,10 @@ export default function SavedPostPage() {
     }
     supabase
       .from('saved_posts')
-      .select('*, profiles(*)')
-      .eq('user_id', session?.user?.id)
+      .select('post_id')
+      .eq('user_id', session.user.id)
       .then((res) => {
-        setPosts(res.data);
+        console.log(res.data);
       });
   }, []);
 
