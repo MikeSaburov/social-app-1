@@ -22,6 +22,7 @@ export default function PostCard({
   const [likes, setLikes] = useState([]);
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
+  const [isSaved, setIsSaved] = useState(false);
 
   const { profile: myProfile } = useContext(UserContext);
 
@@ -30,7 +31,23 @@ export default function PostCard({
   useEffect(() => {
     fetchLikes();
     fetchComments();
+    fetchIsSaved();
   }, []);
+
+  function fetchIsSaved() {
+    supabase
+      .from('saved_posts')
+      .select()
+      .eq('post_id', id)
+      .eq('user_id', myProfile.id)
+      .then((res) => {
+        if (res.data.length > 0) {
+          setIsSaved(true);
+        } else {
+          setIsSaved(false);
+        }
+      });
+  }
 
   function fetchLikes() {
     supabase
@@ -197,7 +214,7 @@ export default function PostCard({
                         d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
                       />
                     </svg>
-                    В закладки
+                    {isSaved ? 'Удалить из закладок' : ' В закладки'}
                   </button>
                   <a
                     href=""

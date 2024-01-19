@@ -33,7 +33,7 @@ export default function SavedPostPage() {
     <Layout>
       <UserContextProvider>
         <h1 className="text-3xl mb-4 text-gray-400">Твои сохраненные посты</h1>
-        {posts.length &&
+        {posts.length > 0 &&
           posts.map((post) => (
             <div key={post.id}>
               <PostCard {...post} />
