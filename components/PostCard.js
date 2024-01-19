@@ -79,15 +79,29 @@ export default function PostCard({
   }
 
   function toggleSave() {
-    supabase
-      .from('saved_posts')
-      .insert({
-        user_id: myProfile.id,
-        post_id: id,
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    if (isSaved) {
+      supabase
+        .from('saved_posts')
+        .delete()
+        .eq('post_id', id)
+        .eq('user_id', myProfile?.id)
+        .then((res) => {
+          setIsSaved(false);
+          setDropdownOpen(false);
+        });
+    }
+    if (!isSaved) {
+      supabase
+        .from('saved_posts')
+        .insert({
+          user_id: myProfile.id,
+          post_id: id,
+        })
+        .then((res) => {
+          setIsSaved(true);
+          setDropdownOpen(false);
+        });
+    }
   }
 
   const isLikedByMe = !!likes.find((like) => like.user_id === myProfile.id);
