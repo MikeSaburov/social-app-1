@@ -28,26 +28,26 @@ export default function PostCard({
 
   const supabase = useSupabaseClient();
 
-  useEffect(() => {
-    fetchLikes();
-    fetchComments();
-    fetchIsSaved();
-  }, []);
-
   function fetchIsSaved() {
     supabase
       .from('saved_posts')
       .select()
       .eq('post_id', id)
-      .eq('user_id', myProfile.id)
+      .eq('user_id', myProfile?.id)
       .then((res) => {
-        if (res.data.length > 0) {
+        if (res?.data?.length > 0) {
           setIsSaved(true);
         } else {
           setIsSaved(false);
         }
       });
   }
+
+  useEffect(() => {
+    fetchLikes();
+    fetchComments();
+    fetchIsSaved();
+  }, []);
 
   function fetchLikes() {
     supabase
@@ -200,20 +200,37 @@ export default function PostCard({
                     onClick={savePost}
                     className="flex py-3 w-full gap-2 hover:bg-blue-500 hover:bg-opacity-20  rounded-md translate-all hover:scale-105 hover:shadow-md hover:shadow-gray-300"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
-                      />
-                    </svg>
+                    {isSaved ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                        />
+                      </svg>
+                    )}
                     {isSaved ? 'Удалить из закладок' : ' В закладки'}
                   </button>
                   <a
