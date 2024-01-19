@@ -27,7 +27,7 @@ export default function SavedPostPage() {
             setPosts(res.data);
           });
       });
-  }, []);
+  }, [session?.user?.id]);
 
   return (
     <Layout>

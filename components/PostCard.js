@@ -28,6 +28,14 @@ export default function PostCard({
 
   const supabase = useSupabaseClient();
 
+  useEffect(() => {
+    fetchLikes();
+    fetchComments();
+    if (myProfile?.id) {
+      fetchIsSaved();
+    }
+  }, [myProfile?.id]);
+
   function fetchIsSaved() {
     supabase
       .from('saved_posts')
@@ -42,12 +50,6 @@ export default function PostCard({
         }
       });
   }
-
-  useEffect(() => {
-    fetchLikes();
-    fetchComments();
-    fetchIsSaved();
-  }, []);
 
   function fetchLikes() {
     supabase
@@ -436,10 +438,7 @@ export default function PostCard({
       <div>
         {comments.length &&
           comments.map((comment) => (
-            <div
-              key={comment.created_at}
-              className="flex mt-2 gap-2 items-center"
-            >
+            <div key={comment.id} className="flex mt-2 gap-2 items-center">
               <div>
                 <Avatar url={comment.profiles.avatar} />
               </div>
